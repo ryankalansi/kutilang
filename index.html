@@ -1,0 +1,1050 @@
+index.html index.html
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PAUD - TK KUTILANG | Sekolah Terbaik untuk Masa Depan Cerah</title>
+    <meta
+      name="description"
+      content="TK Kutilang - Sekolah PAUD terbaik di Bekasi dengan pendekatan pembelajaran sentra dan program unggulan untuk perkembangan optimal anak."
+    />
+
+    <!-- BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- BOOTSTRAP ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- GOOGLE FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-orange: #ff6b35;
+        --primary-purple: #8b5a96;
+        --primary-blue: #13294b;
+        --soft-yellow: #fff3cd;
+        --light-pink: #fcf2ff;
+        --success-green: #28a745;
+        --gradient-1: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        --gradient-2: linear-gradient(135deg, #8b5a96 0%, #b088c4 100%);
+        --gradient-3: linear-gradient(135deg, #13294b 0%, #2c5282 100%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Comic Neue", cursive;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Fredoka", sans-serif;
+        font-weight: 600;
+      }
+
+      /* Enhanced Navbar */
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand h2 {
+        font-size: 1.8rem;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-nav .nav-link {
+        font-weight: 500;
+        padding: 10px 15px !important;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        color: var(--primary-blue) !important;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        background: var(--gradient-1);
+        color: white !important;
+        transform: translateY(-2px);
+      }
+
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 15px;
+        padding: 10px;
+      }
+
+      .dropdown-item {
+        border-radius: 10px;
+        padding: 8px 15px;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background: var(--gradient-2);
+        color: white;
+        transform: translateX(5px);
+      }
+
+      /* Hero Carousel */
+      .carousel {
+        height: 70vh;
+        overflow: hidden;
+      }
+
+      .carousel-inner {
+        height: 100%;
+      }
+
+      .carousel-item {
+        height: 100%;
+        position: relative;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.9);
+      }
+
+      .carousel-item::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 107, 53, 0.1),
+          rgba(139, 90, 150, 0.1)
+        );
+      }
+
+      /* Welcome Section */
+      .welcome-section {
+        background: linear-gradient(
+          135deg,
+          var(--soft-yellow) 0%,
+          var(--light-pink) 100%
+        );
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .welcome-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23FF6B35" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="%238B5A96" opacity="0.1"/><circle cx="40" cy="80" r="2" fill="%2313294B" opacity="0.1"/></svg>');
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(-20px, -20px) rotate(180deg);
+        }
+      }
+
+      .school-title {
+        font-size: 3.5rem;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1.5rem;
+      }
+
+      .school-tagline {
+        font-size: 1.5rem;
+        color: var(--primary-blue);
+        font-weight: 500;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Features Grid */
+      .features-section {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 3px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--gradient-1);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary-orange);
+      }
+
+      .feature-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--gradient-1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 2rem;
+        color: white;
+        box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+      }
+
+      .feature-card:nth-child(2) .feature-icon {
+        background: var(--gradient-2);
+        box-shadow: 0 10px 20px rgba(139, 90, 150, 0.3);
+      }
+
+      .feature-card:nth-child(3) .feature-icon {
+        background: var(--gradient-3);
+        box-shadow: 0 10px 20px rgba(19, 41, 75, 0.3);
+      }
+
+      /* Video Section */
+      .video-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+
+      .video-container {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .video-container iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        margin-bottom: 2rem;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: var(--gradient-1);
+        border-radius: 2px;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 80px 0;
+        background: var(--gradient-1);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button {
+        background: white;
+        color: var(--primary-orange);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        color: var(--primary-orange);
+      }
+
+      /* Contact & Footer */
+      .contact-section {
+        background: var(--primary-blue);
+        color: white;
+        padding: 60px 0;
+      }
+
+      .contact-info {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        backdrop-filter: blur(10px);
+      }
+
+      .social-icons a {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+        color: white;
+        text-decoration: none;
+      }
+
+      .social-icons a:hover {
+        background: var(--primary-orange);
+        transform: translateY(-3px);
+        color: white;
+      }
+
+      footer {
+        background: var(--primary-purple);
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .footer-title {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .footer-title:hover {
+        color: white;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .school-title {
+          font-size: 2.5rem;
+        }
+
+        .school-tagline {
+          font-size: 1.2rem;
+        }
+
+        .carousel {
+          height: 50vh;
+        }
+
+        .feature-card {
+          margin-bottom: 30px;
+        }
+
+        .video-container iframe {
+          height: 250px;
+        }
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-delay-1 {
+        animation-delay: 0.2s;
+      }
+      .animate-delay-2 {
+        animation-delay: 0.4s;
+      }
+      .animate-delay-3 {
+        animation-delay: 0.6s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <h2>
+            <span style="color: var(--primary-purple)">TK KUTILANG</span>
+          </h2>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Tentang Kami
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#latar-belakang"
+                    >Latar Belakang</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#filosofi"
+                    >Filosofi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#visi-misi-tujuan"
+                    >Visi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#visi-misi-tujuan"
+                    >Misi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#visi-misi-tujuan"
+                    >Tujuan</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Program
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="page/program/program.html#poma"
+                    >POMA</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#fieldtrip"
+                    >Fieldtrip</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#berenang"
+                    >Berenang</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#kelas-musik"
+                    >Kelas Musik</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#sehari-bersama-ayah"
+                    >Sehari Bersama Ayah</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#minum-teh-bersama-ibu"
+                    >Minum Teh Bersama Ibu</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#storytelling"
+                    >Storytelling</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#pendidikan-makanan"
+                    >Pendidikan Makanan</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Metode
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/metode/metode.html#bahan-alam"
+                    >Sentra Bahan Alam</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="page/metode/metode.html#seni"
+                    >Sentra Seni</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="page/metode/metode.html#balok"
+                    >Sentra Balok</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/metode/metode.html#persiapan"
+                    >Sentra Persiapan</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="page/metode/metode.html#imtaq"
+                    >Sentra Imtaq</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="page/metode/metode.html#peran"
+                    >Sentra Peran</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/metode/metode.html#kelas-memasak"
+                    >Kelas Memasak</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/metode/metode.html#kurikulum"
+                    >Kurikulum</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cara-mendaftar.html">Cara Mendaftar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontak.html">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO CAROUSEL -->
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000">
+          <div
+            style="
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(45deg, #ff6b35, #8b5a96);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <div class="text-center text-white">
+              <h1 class="display-4 fw-bold mb-3">
+                Selamat Datang di TK Kutilang
+              </h1>
+              <p class="fs-3">Tempat Terbaik untuk Masa Depan Cerah</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <div
+            style="
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(45deg, #13294b, #2c5282);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <div class="text-center text-white">
+              <h2 class="display-5 fw-bold mb-3">
+                Program Pembelajaran Terpadu
+              </h2>
+              <p class="fs-4">Metode Sentra yang Inovatif dan Menyenangkan</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <div
+            style="
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(45deg, #28a745, #20c997);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <div class="text-center text-white">
+              <h2 class="display-5 fw-bold mb-3">Kegiatan Seru Setiap Hari</h2>
+              <p class="fs-4">
+                Fieldtrip, Berenang, Musik, dan Masih Banyak Lagi
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <div
+            style="
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(45deg, #8b5a96, #b088c4);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <div class="text-center text-white">
+              <h2 class="display-5 fw-bold mb-3">Fasilitas Modern & Aman</h2>
+              <p class="fs-4">Lingkungan Belajar yang Nyaman dan Mendukung</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- WELCOME SECTION -->
+    <section class="welcome-section">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1 class="school-title fade-in">
+              <span style="color: var(--primary-purple)">TK KUTILANG</span>
+            </h1>
+            <p class="school-tagline fade-in animate-delay-1">
+              💫 Bangun kecerdasan anak, cemerlangkan masa depan 💫
+            </p>
+            <p class="lead mt-4 fade-in animate-delay-2">
+              Sekolah dengan mengembangkan potensi anak melalui metode sentra
+              yang menyenangkan dan edukatif.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col">
+            <h2 class="section-title">TK Kutilang</h2>
+            <p class="lead">
+              Mengapa memilih kami untuk pendidikan terbaik buah hati Anda?
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="feature-card fade-in">
+              <div class="feature-icon">
+                <i class="bi bi-mortarboard"></i>
+              </div>
+              <h4 class="mb-3">Metode Pembelajaran Sentra</h4>
+              <p>
+                Pendekatan pembelajaran terpadu dengan berbagai sentra yang
+                mengembangkan seluruh aspek perkembangan anak secara optimal dan
+                menyenangkan.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="feature-card fade-in animate-delay-1">
+              <div class="feature-icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <h4 class="mb-3">Program</h4>
+              <p>
+                Beragam program menarik seperti fieldtrip, berenang, kelas
+                musik, storytelling, dan kegiatan bersama orang tua yang
+                menguatkan bonding keluarga.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="feature-card fade-in animate-delay-2">
+              <div class="feature-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h4 class="mb-3">Lingkungan Aman & Nyaman</h4>
+              <p>
+                Fasilitas modern dengan standar keamanan tinggi, area bermain
+                yang luas, dan lingkungan belajar yang kondusif untuk
+                perkembangan anak.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section class="video-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h2 class="section-title text-center">Tentang Metode Sentra</h2>
+            <p class="fs-5 mb-4">
+              Sentra merupakan suatu wadah yang abstrak tempat guru melakukan
+              kegiatan-kegiatan untuk mengalirkan pengetahuan kepada anak sesuai
+              tujuan. Kegiatan bermain di setiap Sentra mempunyai titik pusat
+              yang telah ditetapkan dalam rencana pembelajaran.
+            </p>
+            <p class="mb-4">
+              Kegiatan belajar melalui bermain tersebut menuju satu titik yaitu:
+              tujuan satu hari, begitu seterusnya. Dengan pendekatan ini,
+              anak-anak dapat belajar dengan cara yang menyenangkan dan sesuai
+              dengan tahap perkembangannya.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <div class="badge bg-primary p-2">🎨 Sentra Seni</div>
+              <div class="badge bg-success p-2">🧱 Sentra Balok</div>
+              <div class="badge bg-warning p-2">🌿 Sentra Bahan Alam</div>
+              <div class="badge bg-info p-2">📚 Sentra Persiapan</div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/bwFFZ2Xlzgw"
+                title="PAUD-TK KUTILANG (PART 1)"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="display-4 fw-bold mb-4">
+              Bergabunglah dengan Keluarga Besar TK Kutilang!
+            </h2>
+            <p class="fs-4 mb-5">
+              Berikan yang terbaik untuk masa depan buah hati Anda. Daftarkan
+              sekarang dan rasakan pengalaman belajar yang luar biasa!
+            </p>
+            <div
+              class="d-flex flex-column flex-sm-row gap-3 justify-content-center"
+            >
+              <a href="cara-mendaftar.html" class="cta-button">
+                <i class="bi bi-pencil-square me-2"></i>Daftar Sekarang
+              </a>
+              <a href="kontak.html" class="cta-button">
+                <i class="bi bi-telephone me-2"></i>Hubungi Kami
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="contact-info">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="mb-4">
+                    <span style="color: #ffb6c1">TK KUTILANG</span>
+                  </h3>
+                  <div class="mb-3">
+                    <i class="bi bi-geo-alt-fill me-2"></i>
+                    <strong>Alamat:</strong><br />
+                    Jl. Tarumanegara No.9, RT.002/RW.008<br />
+                    Jatiranggon, Kec. Jatisampurna<br />
+                    Kota Bekasi, Jawa Barat 17431
+                  </div>
+                  <div class="mb-3">
+                    <i class="bi bi-telephone-fill me-2"></i>
+                    <strong>Telepon:</strong> (021) 7980675
+                  </div>
+                  <div class="mb-4">
+                    <i class="bi bi-envelope-fill me-2"></i>
+                    <strong>Email:</strong>
+                    <a href="mailto:kalansiryan@gmail.com" class="text-white"
+                      >kalansiryan@gmail.com</a
+                    >
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="mb-3">Ikuti Kami</h5>
+                  <div class="social-icons mb-4">
+                    <a href="#" title="Instagram"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.youtube.com/@paud-tkkutilangrumahperuba5183"
+                      title="YouTube"
+                      ><i class="bi bi-youtube"></i
+                    ></a>
+                    <a href="#" title="Facebook"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                  </div>
+                  <div class="mb-3">
+                    <i class="bi bi-clock-fill me-2"></i>
+                    <strong>Jam Operasional:</strong><br />
+                    Senin - Jumat: 07:00 - 15:00<br />
+                  </div>
+                  <p class="mb-0">
+                    <a
+                      href="https://rumahperubahan.com/"
+                      class="text-white text-decoration-none"
+                    >
+                      <i class="bi bi-house-fill me-2"></i>Rumah Perubahan
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <a
+              href="https://www.youtube.com/@paud-tkkutilangrumahperuba5183"
+              class="footer-title"
+            >
+              <span style="color: #ffb6c1">TK KUTILANG</span>
+            </a>
+          </div>
+          <div class="col-md-6 text-md-end mt-3 mt-md-0">
+            <p class="mb-0 text-white-50">
+              © 2024 TK Kutilang. Hak Cipta Dilindungi.
+              <br class="d-md-none" />
+              Dibuat dengan ❤️ untuk masa depan anak-anak Indonesia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- BOOTSTRAP JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
+      integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- CUSTOM JS -->
+
+    <style>
+      /* Additional hover animations */
+      .feature-card:hover .feature-icon {
+        animation: bounce 0.6s ease;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        60%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        80% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Loading animation for images */
+      img {
+        transition: opacity 0.3s ease;
+      }
+
+      img:not([src]) {
+        opacity: 0;
+      }
+
+      /* Smooth transitions for all interactive elements */
+      * {
+        transition: all 0.3s ease;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-orange);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-purple);
+      }
+    </style>
+  </body>
+</html>

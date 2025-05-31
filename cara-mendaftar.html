@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PAUD - TK KUTILANG | Sekolah Terbaik untuk Masa Depan Cerah</title>
+    <meta
+      name="description"
+      content="TK Kutilang - Sekolah PAUD terbaik di Bekasi dengan pendekatan pembelajaran sentra dan program unggulan untuk perkembangan optimal anak."
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-orange: #ff6b35;
+        --primary-purple: #8b5a96;
+        --primary-blue: #13294b;
+        --soft-yellow: #fff3cd;
+        --light-pink: #fcf2ff;
+        --success-green: #28a745;
+        --gradient-1: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        --gradient-2: linear-gradient(135deg, #8b5a96 0%, #b088c4 100%);
+        --gradient-3: linear-gradient(135deg, #13294b 0%, #2c5282 100%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Comic Neue", cursive;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Fredoka", sans-serif;
+        font-weight: 600;
+      }
+
+      /* Enhanced Navbar */
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand h2 {
+        font-size: 1.8rem;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-nav .nav-link {
+        font-weight: 500;
+        padding: 10px 15px !important;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        color: var(--primary-blue) !important;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        background: var(--gradient-1);
+        color: white !important;
+        transform: translateY(-2px);
+      }
+
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 15px;
+        padding: 10px;
+      }
+
+      .dropdown-item {
+        border-radius: 10px;
+        padding: 8px 15px;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background: var(--gradient-2);
+        color: white;
+        transform: translateX(5px);
+      }
+
+      /* New Section Styling */
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        margin-bottom: 2rem;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: var(--gradient-1);
+        border-radius: 2px;
+      }
+
+      /* Form Styling */
+      .form-section {
+        background: linear-gradient(
+          135deg,
+          var(--soft-yellow) 0%,
+          var(--light-pink) 100%
+        );
+      }
+
+      .form-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-control {
+        border-radius: 10px;
+        padding: 12px 15px;
+        border: 1px solid #ced4da;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-orange);
+        box-shadow: 0 0 0 0.25rem rgba(255, 107, 53, 0.25);
+      }
+
+      .cta-button {
+        background: white;
+        color: var(--primary-orange);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        color: var(--primary-orange);
+      }
+
+      /* Contact & Footer */
+      .contact-section {
+        background: var(--primary-blue);
+        color: white;
+        padding: 60px 0;
+      }
+
+      .contact-info {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        backdrop-filter: blur(10px);
+      }
+
+      .social-icons a {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+        color: white;
+        text-decoration: none;
+      }
+
+      .social-icons a:hover {
+        background: var(--primary-orange);
+        transform: translateY(-3px);
+        color: white;
+      }
+
+      footer {
+        background: var(--primary-purple);
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .footer-title {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .footer-title:hover {
+        color: white;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-delay-1 {
+        animation-delay: 0.2s;
+      }
+      .animate-delay-2 {
+        animation-delay: 0.4s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <h2>
+            <span style="color: var(--primary-purple)">TK KUTILANG</span>
+          </h2>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Tentang Kami
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#latar-belakang"
+                    >Latar Belakang</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#filosofi"
+                    >Filosofi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#visi-misi-tujuan"
+                    >Visi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#visi-misi-tujuan"
+                    >Misi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/tentangkami/tentang-kami.html#visi-misi-tujuan"
+                    >Tujuan</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Program
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="page/program/program.html#poma"
+                    >POMA</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#fieldtrip"
+                    >Fieldtrip</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#berenang"
+                    >Berenang</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#kelas-musik"
+                    >Kelas Musik</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#sehari-bersama-ayah"
+                    >Sehari Bersama Ayah</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#minum-teh-bersama-ibu"
+                    >Minum Teh Bersama Ibu</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#storytelling"
+                    >Storytelling</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/program/program.html#pendidikan-makanan"
+                    >Pendidikan Makanan</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Metode
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/metode/metode.html#bahan-alam"
+                    >Sentra Bahan Alam</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="page/metode/metode.html#seni"
+                    >Sentra Seni</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="page/metode/metode.html#balok"
+                    >Sentra Balok</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/metode/metode.html#persiapan"
+                    >Sentra Persiapan</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="page/metode/metode.html#imtaq"
+                    >Sentra Imtaq</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="page/metode/metode.html#peran"
+                    >Sentra Peran</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/metode/metode.html#kelas-memasak"
+                    >Kelas Memasak</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="page/metode/metode.html#kurikulum"
+                    >Kurikulum</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="cara-mendaftar.html"
+                >Cara Mendaftar</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontak.html">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section-padding">
+      <div class="container text-center">
+        <h2 class="section-title fade-in">Cara Mendaftar</h2>
+        <p class="lead mb-4 fade-in animate-delay-1">
+          Ikuti langkah-langkah mudah untuk mendaftarkan buah hati Anda!
+        </p>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <p class="fs-5 fade-in animate-delay-2">
+              Untuk mendaftar ke program pendidikan anak usia dini (PAUD) di TK
+              Kutilang, orang tua atau wali harus mengikuti beberapa langkah
+              yang mencakup pengisian formulir pendaftaran, penyediaan dokumen
+              pendukung, dan mengikuti prosedur yang telah ditetapkan.
+            </p>
+            <h4 class="mt-5 mb-3 section-title text-center">
+              Langkah-langkah Pendaftaran
+            </h4>
+            <ol class="text-start fs-5 lh-lg">
+              <li class="mb-2">
+                <strong>Kunjungi Situs Web atau Sekolah:</strong> Dapatkan
+                informasi mengenai persyaratan pendaftaran, tenggat waktu, dan
+                proses seleksi terbaru.
+              </li>
+              <li class="mb-2">
+                <strong>Isi Formulir Pendaftaran:</strong> Unduh atau dapatkan
+                formulir pendaftaran dari situs web kami atau kantor sekolah,
+                lalu isi dengan lengkap dan akurat.
+              </li>
+              <li class="mb-2">
+                <strong>Persiapkan Dokumen Pendukung:</strong> Kumpulkan dokumen
+                yang diperlukan seperti akta kelahiran anak, kartu keluarga,
+                fotokopi KTP orang tua, dan catatan imunisasi anak.
+              </li>
+              <li class="mb-2">
+                <strong>Serahkan Berkas Pendaftaran:</strong> Serahkan formulir
+                pendaftaran yang telah diisi beserta semua dokumen pendukung ke
+                kantor sekolah sesuai dengan petunjuk yang diberikan.
+              </li>
+              <li class="mb-2">
+                <strong>Ikuti Proses Seleksi (Jika Diperlukan):</strong> Jika
+                diperlukan, anak akan mengikuti wawancara atau sesi observasi
+                yang diadakan oleh sekolah untuk mengenal potensi anak lebih
+                jauh.
+              </li>
+              <li class="mb-2">
+                <strong>Tunggu Pemberitahuan:</strong> Kami akan memberitahukan
+                hasil pendaftaran dan informasi lebih lanjut mengenai langkah
+                berikutnya.
+              </li>
+              <li class="mb-2">
+                <strong>Lakukan Pembayaran:</strong> Setelah diterima, lakukan
+                pembayaran biaya pendaftaran sesuai dengan ketentuan yang
+                berlaku untuk mengamankan tempat buah hati Anda.
+              </li>
+              <li class="mb-2">
+                <strong>Mulai Kegiatan:</strong> Setelah semua proses terpenuhi,
+                anak siap mengikuti jadwal awal kegiatan dan orientasi yang
+                diselenggarakan oleh sekolah.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding form-section">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <h2 class="section-title fade-in">
+              Formulir Pendaftaran Siswa Baru
+            </h2>
+            <p class="lead mb-5 fade-in animate-delay-1">
+              Isi formulir di bawah ini untuk mendaftarkan anak Anda di TK
+              Kutilang.
+            </p>
+            <div class="form-card fade-in animate-delay-2">
+              <form>
+                <div class="mb-3 text-start">
+                  <label for="childFullName" class="form-label"
+                    >Nama Lengkap Anak</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="childFullName"
+                    placeholder="Nama Lengkap Anak"
+                    required
+                  />
+                </div>
+                <div class="mb-3 text-start">
+                  <label for="childDOB" class="form-label"
+                    >Tanggal Lahir Anak</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="childDOB"
+                    required
+                  />
+                </div>
+                <div class="mb-3 text-start">
+                  <label for="childGender" class="form-label"
+                    >Jenis Kelamin Anak</label
+                  >
+                  <select class="form-select" id="childGender" required>
+                    <option selected disabled value="">Pilih...</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                </div>
+                <div class="mb-3 text-start">
+                  <label for="parentName" class="form-label"
+                    >Nama Lengkap Orang Tua/Wali</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="parentName"
+                    placeholder="Nama Lengkap Ayah atau Ibu"
+                    required
+                  />
+                </div>
+                <div class="mb-3 text-start">
+                  <label for="parentEmail" class="form-label"
+                    >Email Orang Tua/Wali</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="parentEmail"
+                    placeholder="nama@contoh.com"
+                    required
+                  />
+                </div>
+                <div class="mb-3 text-start">
+                  <label for="parentPhoneNumber" class="form-label"
+                    >Nomor Telepon Orang Tua/Wali</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="parentPhoneNumber"
+                    placeholder="Contoh: 08123456789"
+                    required
+                  />
+                </div>
+                <div class="mb-4 text-start">
+                  <label for="address" class="form-label">Alamat Lengkap</label>
+                  <textarea
+                    class="form-control"
+                    id="address"
+                    rows="3"
+                    placeholder="Alamat lengkap, termasuk RT/RW, Kelurahan, Kecamatan, Kota/Kabupaten, dan Provinsi"
+                    required
+                  ></textarea>
+                </div>
+                <div class="mb-4 text-start">
+                  <label for="additionalInfo" class="form-label"
+                    >Informasi Tambahan (opsional)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="additionalInfo"
+                    rows="3"
+                    placeholder="Misalnya, riwayat kesehatan anak, alergi, atau hal penting lainnya."
+                  ></textarea>
+                </div>
+                <button type="submit" class="cta-button">
+                  <i class="bi bi-send me-2"></i>Kirim Formulir Pendaftaran
+                </button>
+                <small class="d-block mt-3 text-muted"
+                  >Data pendaftaran Anda akan dikirimkan dan disimpan dengan
+                  aman. Kami akan menghubungi Anda kembali untuk langkah
+                  selanjutnya, termasuk kelengkapan dokumen.
+                </small>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="contact-info">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="mb-4">
+                    <span style="color: #ffb6c1">TK KUTILANG</span>
+                  </h3>
+                  <div class="mb-3">
+                    <i class="bi bi-geo-alt-fill me-2"></i>
+                    <strong>Alamat:</strong><br />
+                    Jl. Tarumanegara No.9, RT.002/RW.008<br />
+                    Jatiranggon, Kec. Jatisampurna<br />
+                    Kota Bekasi, Jawa Barat 17431
+                  </div>
+                  <div class="mb-3">
+                    <i class="bi bi-telephone-fill me-2"></i>
+                    <strong>Telepon:</strong> (021) 7980675
+                  </div>
+                  <div class="mb-4">
+                    <i class="bi bi-envelope-fill me-2"></i>
+                    <strong>Email:</strong>
+                    <a href="mailto:kalansiryan@gmail.com" class="text-white"
+                      >kalansiryan@gmail.com</a
+                    >
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="mb-3">Ikuti Kami</h5>
+                  <div class="social-icons mb-4">
+                    <a href="#" title="Instagram"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.youtube.com/@paud-tkkutilangrumahperuba5183"
+                      title="YouTube"
+                      ><i class="bi bi-youtube"></i
+                    ></a>
+                    <a href="#" title="Facebook"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                  </div>
+                  <div class="mb-3">
+                    <i class="bi bi-clock-fill me-2"></i>
+                    <strong>Jam Operasional:</strong><br />
+                    Senin - Jumat: 07:00 - 15:00<br />
+                    Sabtu: 07:00 - 12:00
+                  </div>
+                  <p class="mb-0">
+                    <a
+                      href="https://rumahperubahan.com/"
+                      class="text-white text-decoration-none"
+                    >
+                      <i class="bi bi-house-fill me-2"></i>Rumah Perubahan
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <a
+              href="https://www.youtube.com/@paud-tkkutilangrumahperuba5183"
+              class="footer-title"
+            >
+              <span style="color: #ffb6c1">TK KUTILANG</span>
+            </a>
+          </div>
+          <div class="col-md-6 text-md-end mt-3 mt-md-0">
+            <p class="mb-0 text-white-50">
+              © 2024 TK Kutilang. Hak Cipta Dilindungi.
+              <br class="d-md-none" />
+              Dibuat dengan ❤️ untuk masa depan anak-anak Indonesia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Smooth scrolling for navbar links (if applicable to new sections)
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+      // Navbar background change on scroll
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.style.background = "rgba(255, 255, 255, 0.98)";
+          navbar.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.15)";
+        } else {
+          navbar.style.background = "rgba(255, 255, 255, 0.95)";
+          navbar.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)";
+        }
+      });
+      // Animate elements when they come into view
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running";
+          }
+        });
+      }, observerOptions);
+      // Observe all fade-in elements
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        el.style.animationPlayState = "paused";
+        observer.observe(el);
+      });
+      // Add click effects to buttons
+      document.querySelectorAll(".cta-button, .btn").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          const ripple = document.createElement("span");
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+
+          ripple.style.width = ripple.style.height = size + "px";
+          ripple.style.left = x + "px";
+          ripple.style.top = y + "px";
+          ripple.classList.add("ripple");
+
+          this.appendChild(ripple);
+
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+      // Enhanced dropdown hover effects
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+
+        dropdown.addEventListener("mouseenter", function () {
+          dropdownToggle.classList.add("show");
+          dropdownMenu.classList.add("show");
+        });
+
+        dropdown.addEventListener("mouseleave", function () {
+          dropdownToggle.classList.remove("show");
+          dropdownMenu.classList.remove("show");
+        });
+      });
+    </script>
+
+    <style>
+      /* Ripple effect for buttons */
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
+      }
+
+      @keyframes ripple-animation {
+        to {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+
+      /* Additional hover animations */
+      .feature-card:hover .feature-icon {
+        animation: bounce 0.6s ease;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        60%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        80% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Loading animation for images */
+      img {
+        transition: opacity 0.3s ease;
+      }
+
+      img:not([src]) {
+        opacity: 0;
+      }
+
+      /* Smooth transitions for all interactive elements */
+      * {
+        transition: all 0.3s ease;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-orange);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-purple);
+      }
+    </style>
+  </body>
+</html>
