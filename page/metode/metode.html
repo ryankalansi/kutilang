@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Metode | PAUD - TK KUTILANG</title>
+    <title>Metode | TK KUTILANG</title>
     <meta
       name="description"
       content="Mengenal lebih dekat metode pembelajaran di TK Kutilang, termasuk Sentra Bahan Alam, Seni, Balok, Persiapan, Imtaq, Peran, Kelas Memasak, dan Kurikulum."
@@ -26,339 +26,7 @@
       rel="stylesheet"
     />
 
-    <style>
-      :root {
-        --primary-orange: #ff6b35;
-        --primary-purple: #8b5a96;
-        --primary-blue: #13294b;
-        --soft-yellow: #fff3cd;
-        --light-pink: #fcf2ff;
-        --success-green: #28a745;
-        --gradient-1: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-        --gradient-2: linear-gradient(135deg, #8b5a96 0%, #b088c4 100%);
-        --gradient-3: linear-gradient(135deg, #13294b 0%, #2c5282 100%);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Comic Neue", cursive;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Fredoka", sans-serif;
-        font-weight: 600;
-      }
-
-      /* Enhanced Navbar */
-      .navbar {
-        background: rgba(255, 255, 255, 0.98) !important;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-      }
-
-      .navbar-brand h2 {
-        font-size: 1.8rem;
-        margin: 0;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .navbar-nav .nav-link {
-        font-weight: 500;
-        padding: 10px 15px !important;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-        color: var(--primary-blue) !important;
-      }
-
-      .navbar-nav .nav-link:hover,
-      .navbar-nav .nav-link.active {
-        background: var(--gradient-1);
-        color: white !important;
-        transform: translateY(-2px);
-      }
-
-      .dropdown-menu {
-        border: none;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        border-radius: 15px;
-        padding: 10px;
-      }
-
-      .dropdown-item {
-        border-radius: 10px;
-        padding: 8px 15px;
-        transition: all 0.3s ease;
-      }
-
-      .dropdown-item:hover {
-        background: var(--gradient-2);
-        color: white;
-        transform: translateX(5px);
-      }
-
-      /* Hero Section */
-      .hero-section {
-        background: var(--gradient-1);
-        color: white;
-        padding: 100px 0 80px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero-section::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.15)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-        animation: float 20s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        50% {
-          transform: translate(-20px, -20px) rotate(180deg);
-        }
-      }
-
-      .hero-title {
-        font-size: 3rem;
-        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-        margin-bottom: 1.5rem;
-      }
-
-      /* Content Sections */
-      .content-section {
-        padding: 80px 0;
-        position: relative;
-      }
-
-      .content-section:nth-child(even) {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      }
-
-      .section-title {
-        font-size: 2.5rem;
-        color: var(--primary-blue);
-        margin-bottom: 2rem;
-        position: relative;
-        text-align: center;
-      }
-
-      .section-title::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 4px;
-        background: var(--gradient-1);
-        border-radius: 2px;
-      }
-
-      .content-card {
-        background: white;
-        border-radius: 20px;
-        padding: 40px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
-        transition: all 0.3s ease;
-        border-left: 5px solid var(--primary-orange);
-      }
-
-      .content-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      }
-
-      .philosophy-highlight {
-        background: var(--gradient-2);
-        color: white;
-        padding: 30px;
-        border-radius: 15px;
-        margin: 30px 0;
-        font-weight: 600;
-        font-size: 1.1rem;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-      }
-
-      .method-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 40px;
-      }
-
-      .method-card {
-        background: white;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .method-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      }
-
-      .method-card h3 {
-        margin-bottom: 20px;
-        font-size: 1.8rem;
-        color: var(--primary-blue);
-      }
-
-      /* Image Gallery */
-      .image-gallery {
-        margin: 40px 0;
-      }
-
-      .gallery-image {
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .gallery-image:hover {
-        transform: scale(1.05);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Contact Section */
-      .contact-section {
-        background: var(--primary-blue);
-        color: white;
-        padding: 60px 0;
-      }
-
-      .contact-info {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 15px;
-        padding: 30px;
-        backdrop-filter: blur(10px);
-      }
-
-      .social-icons a {
-        display: inline-flex;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        align-items: center;
-        justify-content: center;
-        margin: 0 10px;
-        transition: all 0.3s ease;
-        color: white;
-        text-decoration: none;
-      }
-
-      .social-icons a:hover {
-        background: var(--primary-orange);
-        transform: translateY(-3px);
-        color: white;
-      }
-
-      /* Footer */
-      footer {
-        background: var(--primary-purple);
-        padding: 20px 0;
-        text-align: center;
-      }
-
-      .footer-title {
-        color: white;
-        text-decoration: none;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-
-      .footer-title:hover {
-        color: white;
-      }
-
-      /* Animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.8s ease forwards;
-      }
-
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .animate-delay-1 {
-        animation-delay: 0.2s;
-      }
-      .animate-delay-2 {
-        animation-delay: 0.4s;
-      }
-      .animate-delay-3 {
-        animation-delay: 0.6s;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .hero-title {
-          font-size: 2.2rem;
-        }
-        .section-title {
-          font-size: 2rem;
-        }
-        .content-card {
-          padding: 25px;
-        }
-        .numbered-list li {
-          padding-left: 50px;
-          font-size: 1rem;
-        }
-        .numbered-list li::before {
-          width: 35px;
-          height: 35px;
-          font-size: 1rem;
-        }
-      }
-
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: var(--primary-orange);
-        border-radius: 4px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: var(--primary-purple);
-      }
-    </style>
+    <link rel="stylesheet" href="../../src/css/metode.css" />
   </head>
 
   <body>
@@ -502,8 +170,7 @@
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link active dropdown-toggle"
-                href="#"
+                class="nav-link dropdown-toggle"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -512,58 +179,34 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../program/program.html#poma"
-                    >POMA</a
+                  <a class="dropdown-item" href="#bahan-alam"
+                    >Sentra Bahan Alam</a
                   >
                 </li>
                 <li>
-                  <a
-                    class="dropdown-item"
-                    href="../program/program.html#fieldtrip"
-                    >Fieldtrip</a
+                  <a class="dropdown-item" href="#seni">Sentra Seni</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#balok">Sentra Balok</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#persiapan"
+                    >Sentra Persiapan</a
                   >
                 </li>
                 <li>
-                  <a
-                    class="dropdown-item"
-                    href="../program/program.html#outbound"
-                    >Berenang</a
+                  <a class="dropdown-item" href="#imtaq">Sentra Imtaq</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#peran">Sentra Peran</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#kelas-memasak"
+                    >Kelas Memasak</a
                   >
                 </li>
                 <li>
-                  <a
-                    class="dropdown-item"
-                    href="../program/program.html#kelas-musik"
-                    >Kelas Musik</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../program/program.html#sehari-bersama-ayah"
-                    >Sehari Bersama Ayah</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../program/program.html#minum-teh-bersama-ibu"
-                    >Minum Teh Bersama Ibu</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../program/program.html#storytelling"
-                    >Storytelling</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../program/program.html#pendidikan-makanan"
-                    >Pendidikan Makanan</a
-                  >
+                  <a class="dropdown-item" href="#kurikulum">Kurikulum</a>
                 </li>
               </ul>
             </li>
@@ -643,6 +286,49 @@
       </div>
     </section>
 
+    <section class="content-section" id="seni">
+      <div class="container">
+        <h2 class="section-title fade-in">Sentra Seni</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="content-card fade-in animate-delay-1">
+              <p class="fs-5">
+                Anak-anak memiliki jiwa yang bebas, belum terbelenggu oleh
+                beragam masalah seperti orang dewasa . Jiwa bebas itulah yang
+                menjadi modal berharga munculnya kreativitas seni, sehingga anak
+                sering disebut sebagai kreator alamiah.
+              </p>
+            </div>
+            <div class="image-gallery text-center fade-in animate-delay-2">
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <img
+                    src="../../Assets/img/metode/seni/seni1.jpg"
+                    class="img-fluid gallery-image"
+                    alt="Foto melukis (1)"
+                  />
+                </div>
+                <div class="col-md-4 mb-3">
+                  <img
+                    src="../../Assets/img/metode/seni/seni2.jpg"
+                    class="img-fluid gallery-image"
+                    alt="Foto melukis (2)"
+                  />
+                </div>
+                <div class="col-md-4 mb-3">
+                  <img
+                    src="../../Assets/img/metode/seni/seni3.jpg"
+                    class="img-fluid gallery-image"
+                    alt="Foto suasana sentra seni"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="content-section" id="balok">
       <div class="container">
         <h2 class="section-title fade-in">Sentra Balok</h2>
@@ -684,146 +370,6 @@
                     src="../../Assets/img/metode/balok/balok3.jpg"
                     class="img-fluid gallery-image"
                     alt="Hasil balok (2)"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section" id="imtaq">
-      <div class="container">
-        <h2 class="section-title fade-in">Sentra Imtaq (Iman & Taqwa)</h2>
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="content-card fade-in animate-delay-1">
-              <p class="fs-5">
-                Aturan-aturan agama disampaikan dalam bahasa yang bisa dipahami
-                anak serta dikemas dengan narasi kasih sayang, sehingga
-                nilai-nilai moral yang berlaku menjadi bagian hidup anak
-                sehari-hari.
-              </p>
-            </div>
-            <div class="image-gallery text-center fade-in animate-delay-2">
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <img
-                    src="../../Assets/img/metode/imtaq/imtaq1.jpg"
-                    class="img-fluid gallery-image"
-                    alt="Foto suasana sentra imtaq/iman & taqwa (1)"
-                  />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <img
-                    src="../../Assets/img/metode/imtaq/imtaq2.jpg"
-                    class="img-fluid gallery-image"
-                    alt="Foto suasana sentra imtaq/iman & taqwa (2)"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section" id="kelas-memasak">
-      <div class="container">
-        <h2 class="section-title fade-in">Kelas Memasak</h2>
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="content-card fade-in animate-delay-1">
-              <p class="fs-5">
-                Program kelas memasak dalam pendidikan anak usia dini (PAUD)
-                menawarkan kesempatan unik bagi anak-anak untuk belajar tentang
-                makanan, gizi, dan keterampilan hidup dasar melalui kegiatan
-                praktis dan menyenangkan 58, 59]. Dalam kelas ini, anak-anak
-                diajari cara menyiapkan makanan sederhana, memahami resep, dan
-                mengenal berbagai jenis bahan makanan. Selain itu, mereka juga
-                belajar tentang pentingnya kebersihan dan keamanan pangan.
-              </p>
-            </div>
-            <div class="image-gallery text-center fade-in animate-delay-2">
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <img
-                    src="../../Assets/img/metode/memasak/memasak1.jpg"
-                    class="img-fluid gallery-image"
-                    alt="Foto mendampingi murid dalam aktivitas kelas memasak"
-                  />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <img
-                    src="../../Assets/img/metode/memasak/memasak2.jpg"
-                    class="img-fluid gallery-image"
-                    alt="Foto suasana kelas memasak"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section" id="kurikulum">
-      <div class="container">
-        <h2 class="section-title fade-in">Kurikulum</h2>
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="content-card fade-in animate-delay-1">
-              <p class="fs-5">
-                Metode Sentra atau Beyond Centres and Circle Time (BCCT) adalah
-                model pembelajaran yang menjadikan bermain di sentra dan saat
-                lingkaran sebagai wahana belajar anak 65, 66]. Sebuah model
-                kurikulum pendidikan anak usia dini yang dirancang oleh Pamela
-                C. Phelps, Ph.D., di Florida, Amerika Serikat. Melalui Metode
-                Sentra, guru memberikan rangkaian aktifitas untuk memfasilitasi
-                kemampuan anak sesuai tahapan perkembangannya. Guru menempatkan
-                diri sebagai penyokong aktifitas sehingga metode ini bersifat
-                indirect teaching dan student centred.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section" id="peran">
-      <div class="container">
-        <h2 class="section-title fade-in">Sentra Peran</h2>
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="content-card fade-in animate-delay-1">
-              <p class="fs-5 mb-4">
-                Peran besar, anak-anak belajar bagaimana menciptakan interaksi
-                sosial yang bermanfaat. Disebut juga sebagai main simbolik, role
-                play, pura-pura, make-believe, fantasi, imajinasi, atau main
-                drama. Peran besar, menggunakan alat-alat berukuran
-                sesungguhnya.
-              </p>
-              <p class="fs-5">
-                Peran kecil, bermain secara simbolik dengan menggunakan mainan
-                dan miniatur, dengan bermain peran membuat anak mengembangkan
-                kemampuan pengendalian diri terhadap keinginannya.
-              </p>
-            </div>
-            <div class="image-gallery text-center fade-in animate-delay-2">
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <img
-                    src="../../Assets/img/metode/peran/peran1.jpg"
-                    class="img-fluid gallery-image"
-                    alt="Foto suasana sentra peran (1)"
-                  />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <img
-                    src="../../Assets/img/metode/peran/peran2.jpg"
-                    class="img-fluid gallery-image"
-                    alt="Foto suasana sentra peran (2)"
                   />
                 </div>
               </div>
@@ -882,43 +428,140 @@
       </div>
     </section>
 
-    <section class="content-section" id="seni">
+    <section class="content-section" id="imtaq">
       <div class="container">
-        <h2 class="section-title fade-in">Sentra Seni</h2>
+        <h2 class="section-title fade-in">Sentra Imtaq (Iman & Taqwa)</h2>
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="content-card fade-in animate-delay-1">
               <p class="fs-5">
-                Anak-anak memiliki jiwa yang bebas, belum terbelenggu oleh
-                beragam masalah seperti orang dewasa . Jiwa bebas itulah yang
-                menjadi modal berharga munculnya kreativitas seni, sehingga anak
-                sering disebut sebagai kreator alamiah.
+                Aturan-aturan agama disampaikan dalam bahasa yang bisa dipahami
+                anak serta dikemas dengan narasi kasih sayang, sehingga
+                nilai-nilai moral yang berlaku menjadi bagian hidup anak
+                sehari-hari.
               </p>
             </div>
             <div class="image-gallery text-center fade-in animate-delay-2">
               <div class="row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                   <img
-                    src="../../Assets/img/metode/seni/seni1.jpg"
+                    src="../../Assets/img/metode/imtaq/imtaq1.jpg"
                     class="img-fluid gallery-image"
-                    alt="Foto melukis (1)"
+                    alt="Foto suasana sentra imtaq/iman & taqwa (1)"
                   />
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                   <img
-                    src="../../Assets/img/metode/seni/seni2.jpg"
+                    src="../../Assets/img/metode/imtaq/imtaq2.jpg"
                     class="img-fluid gallery-image"
-                    alt="Foto melukis (2)"
-                  />
-                </div>
-                <div class="col-md-4 mb-3">
-                  <img
-                    src="../../Assets/img/metode/seni/seni3.jpg"
-                    class="img-fluid gallery-image"
-                    alt="Foto suasana sentra seni"
+                    alt="Foto suasana sentra imtaq/iman & taqwa (2)"
                   />
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="peran">
+      <div class="container">
+        <h2 class="section-title fade-in">Sentra Peran</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="content-card fade-in animate-delay-1">
+              <p class="fs-5 mb-4">
+                Peran besar, anak-anak belajar bagaimana menciptakan interaksi
+                sosial yang bermanfaat. Disebut juga sebagai main simbolik, role
+                play, pura-pura, make-believe, fantasi, imajinasi, atau main
+                drama. Peran besar, menggunakan alat-alat berukuran
+                sesungguhnya.
+              </p>
+              <p class="fs-5">
+                Peran kecil, bermain secara simbolik dengan menggunakan mainan
+                dan miniatur, dengan bermain peran membuat anak mengembangkan
+                kemampuan pengendalian diri terhadap keinginannya.
+              </p>
+            </div>
+            <div class="image-gallery text-center fade-in animate-delay-2">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <img
+                    src="../../Assets/img/metode/peran/peran1.jpg"
+                    class="img-fluid gallery-image"
+                    alt="Foto suasana sentra peran (1)"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <img
+                    src="../../Assets/img/metode/peran/peran2.jpg"
+                    class="img-fluid gallery-image"
+                    alt="Foto suasana sentra peran (2)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="kelas-memasak">
+      <div class="container">
+        <h2 class="section-title fade-in">Kelas Memasak</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="content-card fade-in animate-delay-1">
+              <p class="fs-5">
+                Program kelas memasak dalam pendidikan anak usia dini (PAUD)
+                menawarkan kesempatan unik bagi anak-anak untuk belajar tentang
+                makanan, gizi, dan keterampilan hidup dasar melalui kegiatan
+                praktis dan menyenangkan 58, 59]. Dalam kelas ini, anak-anak
+                diajari cara menyiapkan makanan sederhana, memahami resep, dan
+                mengenal berbagai jenis bahan makanan. Selain itu, mereka juga
+                belajar tentang pentingnya kebersihan dan keamanan pangan.
+              </p>
+            </div>
+            <div class="image-gallery text-center fade-in animate-delay-2">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <img
+                    src="../../Assets/img/metode/memasak/memasak1.jpg"
+                    class="img-fluid gallery-image"
+                    alt="Foto mendampingi murid dalam aktivitas kelas memasak"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <img
+                    src="../../Assets/img/metode/memasak/memasak2.jpg"
+                    class="img-fluid gallery-image"
+                    alt="Foto suasana kelas memasak"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="kurikulum">
+      <div class="container">
+        <h2 class="section-title fade-in">Kurikulum</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="content-card fade-in animate-delay-1">
+              <p class="fs-5">
+                Metode Sentra atau Beyond Centres and Circle Time (BCCT) adalah
+                model pembelajaran yang menjadikan bermain di sentra dan saat
+                lingkaran sebagai wahana belajar anak. Sebuah model kurikulum
+                pendidikan anak usia dini yang dirancang oleh Pamela C. Phelps,
+                Ph.D., di Florida, Amerika Serikat. Melalui Metode Sentra, guru
+                memberikan rangkaian aktifitas untuk memfasilitasi kemampuan
+                anak sesuai tahapan perkembangannya. Guru menempatkan diri
+                sebagai penyokong aktifitas sehingga metode ini bersifat
+                indirect teaching dan student centred.
+              </p>
             </div>
           </div>
         </div>
@@ -938,19 +581,18 @@
                   <div class="mb-3">
                     <i class="bi bi-geo-alt-fill me-2"></i>
                     <strong>Alamat:</strong><br />
-                    Jl. Tarumanegara No.9, RT.002/RW.008<br />
-                    Jatiranggon, Kec. Jatisampurna<br />
-                    Kota Bekasi, Jawa Barat 17431
+                    Jalan Sanwani No 1 Rt.002 Rw.008 Jatimurni Pondok Melati,
+                    Kota Bekasi, 17431
                   </div>
                   <div class="mb-3">
                     <i class="bi bi-telephone-fill me-2"></i>
-                    <strong>Telepon:</strong> (021) 7980675
+                    <strong>Telepon:</strong> (021) 1234567
                   </div>
                   <div class="mb-4">
                     <i class="bi bi-envelope-fill me-2"></i>
                     <strong>Email:</strong>
                     <a href="mailto:kalansiryan@gmail.com" class="text-white"
-                      >kalansiryan@gmail.com</a
+                      >kutilang@gmail.com</a
                     >
                   </div>
                 </div>
@@ -972,8 +614,7 @@
                   <div class="mb-3">
                     <i class="bi bi-clock-fill me-2"></i>
                     <strong>Jam Operasional:</strong><br />
-                    Senin - Jumat: 07:00 - 15:00<br />
-                    Sabtu: 07:00 - 12:00
+                    Senin - Jumat: 07:00 - 15:00
                   </div>
                   <p class="mb-0">
                     <a
@@ -994,19 +635,17 @@
     <footer>
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6">
+          <div class="col-md-6 text-center text-md-start">
             <a
               href="https://www.youtube.com/@paud-tkkutilangrumahperuba5183"
               class="footer-title"
             >
-              <span style="color: #ffb6c1">TK KUTILANG</span>
+              <span style="color: #ffb6c1" class="">TK KUTILANG</span>
             </a>
           </div>
-          <div class="col-md-6 text-md-end mt-3 mt-md-0">
+          <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
             <p class="mb-0 text-white-50">
-              © 2024 TK Kutilang. Hak Cipta Dilindungi. 244]
-              <br class="d-md-none" />
-              Dibuat dengan ❤️ untuk masa depan anak-anak Indonesia. 245]
+              © 2025 TK Kutilang. Hak Cipta Dilindungi.
             </p>
           </div>
         </div>
