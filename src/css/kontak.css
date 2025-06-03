@@ -551,7 +551,7 @@ img:not([src]) {
 
 /* Override footer color for this specific page if desired, or keep general footer style */
 footer {
-  background: var(--primary-purple); /* Consistent with index.html */
+  background: var(--soft-yellow); /* Consistent with index.html */
   padding: 20px 0;
   text-align: center;
 }
