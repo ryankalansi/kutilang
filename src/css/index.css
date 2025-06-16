@@ -84,7 +84,9 @@ h6 {
 /* Hero Carousel */
 .carousel {
   height: 70vh;
+  min-height: 400px;
   overflow: hidden;
+  position: relative;
 }
 
 .carousel-inner {
@@ -96,27 +98,144 @@ h6 {
   position: relative;
 }
 
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.9);
+.carousel-item > div {
+  padding: 20px;
+  min-height: 100%;
 }
 
-.carousel-item::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 107, 53, 0.1),
-    rgba(139, 90, 150, 0.1)
-  );
+/* Responsive Text Sizing */
+.carousel-item h1 {
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
+.carousel-item h2 {
+  font-size: clamp(1.3rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.carousel-item p {
+  font-size: clamp(0.9rem, 3vw, 1.5rem);
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+/* Carousel Controls - Better Mobile Experience */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 15%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 20px 20px;
+  width: 30px;
+  height: 30px;
+}
+
+/* Carousel Indicators - Mobile Friendly */
+.carousel-indicators {
+  bottom: 15px;
+  margin-bottom: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+
+.carousel-indicators .active {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Mobile Specific Adjustments */
+@media (max-width: 768px) {
+  .carousel {
+    height: 60vh;
+    min-height: 350px;
+  }
+
+  .carousel-item > div {
+    padding: 15px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 20%;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-size: 18px 18px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .carousel-indicators {
+    bottom: 10px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 50vh;
+    min-height: 300px;
+  }
+
+  .carousel-item > div {
+    padding: 10px;
+  }
+
+  .carousel-item h1,
+  .carousel-item h2 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Background Gradients */
+.bg-gradient-1 {
+  background: linear-gradient(45deg, #ff6b35, #8b5a96);
+}
+
+.bg-gradient-2 {
+  background: linear-gradient(45deg, #13294b, #2c5282);
+}
+
+.bg-gradient-3 {
+  background: linear-gradient(45deg, #28a745, #20c997);
+}
+
+.bg-gradient-4 {
+  background: linear-gradient(45deg, #8b5a96, #b088c4);
+}
+
+/* Text Content Container */
+.carousel-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  padding: 0 15px;
+}
 /* Welcome Section */
 .welcome-section {
   background: linear-gradient(
