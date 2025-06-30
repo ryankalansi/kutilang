@@ -298,6 +298,8 @@ h6 {
   border: 3px solid transparent;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .feature-card::before {
@@ -338,6 +340,12 @@ h6 {
 .feature-card:nth-child(3) .feature-icon {
   background: var(--gradient-3);
   box-shadow: 0 10px 20px rgba(19, 41, 75, 0.3);
+}
+
+/* Untuk membuat content paragraph mengisi ruang yang tersisa */
+.feature-card p {
+  flex-grow: 1;
+  margin-bottom: 0;
 }
 
 /* Video Section */
@@ -523,7 +531,13 @@ img:not([src]) {
   }
 
   .feature-card {
-    margin-bottom: 30px;
+    padding: 30px 20px;
+  }
+
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
   }
 
   .video-container iframe {
