@@ -47,9 +47,14 @@ h6 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.navbar-nav {
+  gap: 8px; /* Jarak antar semua item - INI YANG DITAMBAHKAN */
+}
+
 .navbar-nav .nav-link {
   font-weight: 500;
   padding: 10px 15px !important;
+  margin: 0 2px; /* Margin tambahan - INI YANG DITAMBAHKAN */
   border-radius: 20px;
   transition: all 0.3s ease;
   color: var(--primary-blue) !important;
