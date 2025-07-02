@@ -32,114 +32,60 @@ h6 {
   font-weight: 600;
 }
 
-/* Enhanced Navbar */
-.navbar {
+/* NAVBAR */
+.navbar-custom {
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.navbar-brand h2 {
-  font-size: 1.8rem;
-  margin: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-nav {
-  gap: 8px; /* Jarak antar semua item - INI YANG DITAMBAHKAN */
-}
-
-.navbar-nav .nav-link {
+.nav-link-custom {
   font-weight: 500;
-  padding: 10px 15px !important;
-  margin: 0 2px; /* Margin tambahan - INI YANG DITAMBAHKAN */
-  border-radius: 20px;
-  transition: all 0.3s ease;
   color: var(--primary-blue) !important;
+  transition: all 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  background: var(--gradient-1);
+.nav-link-custom:hover,
+.nav-link-custom.active {
+  background: var(--gradient-1) !important;
   color: white !important;
   transform: translateY(-2px);
 }
 
-.dropdown-menu {
+.dropdown-menu-custom {
   border: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
-  padding: 10px;
 }
 
-.dropdown-item {
-  border-radius: 10px;
-  padding: 8px 15px;
+.dropdown-item-custom {
   transition: all 0.3s ease;
 }
 
-.dropdown-item:hover {
-  background: var(--gradient-2);
-  color: white;
+.dropdown-item-custom:hover {
+  background: var(--gradient-2) !important;
+  color: white !important;
   transform: translateX(5px);
 }
+/* END NAVBAR */
 
-/* Hero Section */
-.hero-section {
-  background: var(--gradient-1);
-  color: white;
-  padding: 100px 0 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-section::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.15)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-  animation: float 20s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate(-20px, -20px) rotate(180deg);
-  }
-}
-
-.hero-title {
-  font-size: 3rem;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1.5rem;
-}
-
-/* Content Sections */
-.content-section {
-  padding: 80px 0;
+/* Section Styling - Menggunakan Bootstrap py-5 (padding-top: 3rem, padding-bottom: 3rem) */
+.program-section {
   position: relative;
 }
 
-.content-section:nth-child(even) {
+/* Alternating background untuk setiap section genap */
+.program-section:nth-child(even) {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-.section-title {
+/* Section Title - Menggunakan Bootstrap text-center, mb-4 */
+.program-title {
   font-size: 2.5rem;
   color: var(--primary-blue);
-  margin-bottom: 2rem;
   position: relative;
-  text-align: center;
 }
 
-.section-title::after {
+.program-title::after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -151,39 +97,30 @@ h6 {
   border-radius: 2px;
 }
 
-.content-card {
-  background: white;
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
+/* Content Card - Menggunakan Bootstrap bg-white, rounded-4, p-4, shadow, mb-4 */
+.program-card {
+  border-radius: 20px !important; /* Override Bootstrap rounded-4 */
   transition: all 0.3s ease;
   border-left: 5px solid var(--primary-orange);
 }
 
-.content-card:hover {
+.program-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
 }
 
-.philosophy-highlight {
-  background: var(--gradient-2);
-  color: white;
-  padding: 30px;
-  border-radius: 15px;
-  margin: 30px 0;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+/* POMA Section */
+.poma-section .program-card {
+  border-left-color: var(--primary-orange);
 }
 
-.numbered-list {
+.poma-list {
   counter-reset: item;
   list-style: none;
   padding-left: 0;
 }
 
-.numbered-list li {
+.poma-list li {
   counter-increment: item;
   margin-bottom: 25px;
   padding-left: 80px;
@@ -193,7 +130,7 @@ h6 {
   padding-top: 5px;
 }
 
-.numbered-list li::before {
+.poma-list li::before {
   content: counter(item);
   position: absolute;
   left: 0;
@@ -213,89 +150,204 @@ h6 {
   font-family: "Fredoka", sans-serif;
 }
 
-.numbered-list li:nth-child(even)::before {
+.poma-list li:nth-child(even)::before {
   background: var(--gradient-2);
   transform: rotate(5deg);
   border-radius: 50% 15px 15px 50%;
   box-shadow: 0 5px 15px rgba(139, 90, 150, 0.3);
 }
 
-.numbered-list li:nth-child(3n)::before {
+.poma-list li:nth-child(3n)::before {
   background: var(--gradient-3);
   transform: rotate(-3deg);
   border-radius: 25px 15px 25px 15px;
   box-shadow: 0 5px 15px rgba(19, 41, 75, 0.3);
 }
 
-/* Image Gallery */
-.image-gallery {
-  margin: 40px 0;
+/* Field Trip Section */
+.fieldtrip-section .program-card {
+  border-left-color: var(--primary-purple);
 }
 
-.gallery-image {
+.fieldtrip-gallery .card-img-top {
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.gallery-image:hover {
+.fieldtrip-gallery .card-img-top:hover {
   transform: scale(1.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Contact Section */
-.contact-section {
-  background: var(--primary-blue);
-  color: white;
-  padding: 60px 0;
+/* Swimming Section */
+.berenang-section .program-card {
+  border-left-color: #007bff; /* Bootstrap primary blue */
 }
 
-.contact-info {
-  background: rgba(255, 255, 255, 0.1);
+.berenang-gallery .card-img-top {
   border-radius: 15px;
-  padding: 30px;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-.social-icons a {
-  display: inline-flex;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+.berenang-gallery .card-img-top:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Music Class Section */
+.musik-section .program-card {
+  border-left-color: #fd7e14; /* Bootstrap orange */
+}
+
+.musik-gallery .card-img-top {
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.musik-gallery .card-img-top:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Father's Day Section */
+.ayah-section .program-card {
+  border-left-color: var(--primary-blue);
+}
+
+.ayah-gallery .card-img-top {
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.ayah-gallery .card-img-top:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Tea Time with Mother Section */
+.teh-section .program-card {
+  border-left-color: #e83e8c; /* Bootstrap pink */
+}
+
+.teh-gallery .card-img-top {
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.teh-gallery .card-img-top:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Storytelling Section */
+.storytelling-section .program-card {
+  border-left-color: #6f42c1; /* Bootstrap purple */
+}
+
+.storytelling-list {
+  counter-reset: item;
+  list-style: none;
+  padding-left: 0;
+}
+
+.storytelling-list li {
+  counter-increment: item;
+  margin-bottom: 25px;
+  padding-left: 80px;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding-top: 5px;
+}
+
+.storytelling-list li::before {
+  content: counter(item);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 45px;
+  background: var(--gradient-2);
+  color: white;
+  border-radius: 15px 50% 50% 15px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 10px;
-  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 1.3rem;
+  box-shadow: 0 5px 15px rgba(139, 90, 150, 0.3);
+  transform: rotate(-5deg);
+  font-family: "Fredoka", sans-serif;
+}
+
+.storytelling-list li:nth-child(even)::before {
+  background: var(--gradient-3);
+  transform: rotate(5deg);
+  border-radius: 50% 15px 15px 50%;
+  box-shadow: 0 5px 15px rgba(19, 41, 75, 0.3);
+}
+
+.storytelling-list li:nth-child(3n)::before {
+  background: var(--gradient-1);
+  transform: rotate(-3deg);
+  border-radius: 25px 15px 25px 15px;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* Food Education Section */
+.makanan-section .program-card {
+  border-left-color: var(--success-green);
+}
+
+.makanan-list {
+  counter-reset: item;
+  list-style: none;
+  padding-left: 0;
+}
+
+.makanan-list li {
+  counter-increment: item;
+  margin-bottom: 25px;
+  padding-left: 80px;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding-top: 5px;
+}
+
+.makanan-list li::before {
+  content: counter(item);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--success-green) 0%, #20c997 100%);
   color: white;
-  text-decoration: none;
+  border-radius: 15px 50% 50% 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+  transform: rotate(-5deg);
+  font-family: "Fredoka", sans-serif;
 }
 
-.social-icons a:hover {
-  background: var(--primary-orange);
-  transform: translateY(-3px);
-  color: white;
+.makanan-list li:nth-child(even)::before {
+  background: var(--gradient-1);
+  transform: rotate(5deg);
+  border-radius: 50% 15px 15px 50%;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
 }
 
-/* Footer */
-footer {
-  background: var(--soft-yellow);
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer-title {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.footer-title:hover {
-  color: white;
-}
-
-/* Animations */
+/* Animations - Bootstrap sudah menyediakan utility untuk animation */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -319,22 +371,31 @@ footer {
   animation-delay: 0.6s;
 }
 
-/* Responsive Design */
+/* Contact Section - Menggunakan Bootstrap utility classes */
+.social-icons a {
+  transition: all 0.3s ease !important;
+}
+
+/* Responsive Design - Bootstrap sudah handle sebagian besar, hanya custom styling */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
-  .section-title {
+  .program-title {
     font-size: 2rem;
   }
-  .content-card {
-    padding: 25px;
+
+  .program-card {
+    padding: 1.5rem !important; /* Override Bootstrap p-4 */
   }
-  .numbered-list li {
+
+  .poma-list li,
+  .storytelling-list li,
+  .makanan-list li {
     padding-left: 70px;
     font-size: 1rem;
   }
-  .numbered-list li::before {
+
+  .poma-list li::before,
+  .storytelling-list li::before,
+  .makanan-list li::before {
     width: 50px;
     height: 40px;
     font-size: 1.1rem;
