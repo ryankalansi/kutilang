@@ -32,65 +32,54 @@ h6 {
   font-weight: 600;
 }
 
-.navbar {
+/* NAVBAR */
+.navbar-custom {
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.navbar-brand h2 {
-  font-size: 1.8rem;
-  margin: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-nav {
-  gap: 8px; /* Jarak antar semua item - INI YANG DITAMBAHKAN */
-}
-
-.navbar-nav .nav-link {
+.nav-link-custom {
   font-weight: 500;
-  padding: 10px 15px !important;
-  margin: 0 2px; /* Margin tambahan - INI YANG DITAMBAHKAN */
-  border-radius: 20px;
-  transition: all 0.3s ease;
   color: var(--primary-blue) !important;
+  transition: all 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  background: var(--gradient-1);
+.nav-link-custom:hover,
+.nav-link-custom.active {
+  background: var(--gradient-1) !important;
   color: white !important;
   transform: translateY(-2px);
 }
 
-.dropdown-menu {
+.dropdown-menu-custom {
   border: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
-  padding: 10px;
 }
 
-.dropdown-item {
-  border-radius: 10px;
-  padding: 8px 15px;
+.dropdown-item-custom {
   transition: all 0.3s ease;
 }
 
-.dropdown-item:hover {
-  background: var(--gradient-2);
-  color: white;
+.dropdown-item-custom:hover {
+  background: var(--gradient-2) !important;
+  color: white !important;
   transform: translateX(5px);
 }
+/* END NAVBAR */
 
-.section-title {
+/* Section Titles */
+.latar-belakang-title,
+.filosofi-title,
+.visi-misi-title {
   font-size: 2.5rem;
   color: var(--primary-blue);
   position: relative;
 }
 
-.section-title::after {
+.latar-belakang-title::after,
+.filosofi-title::after,
+.visi-misi-title::after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -102,37 +91,46 @@ h6 {
   border-radius: 2px;
 }
 
-.content-card {
-  background: white;
+/* Latar Belakang Section */
+.latar-belakang-card {
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
   transition: all 0.3s ease;
   border-left: 5px solid var(--primary-orange);
 }
 
-.content-card:hover {
+.latar-belakang-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.image-gallery {
-  margin: 40px 0;
-}
-
-.gallery-image {
+.latar-belakang-image {
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.gallery-image:hover {
+.latar-belakang-image:hover {
   transform: scale(1.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.philosophy-highlight {
+/* Filosofi Section */
+.filosofi-card {
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--primary-orange);
+}
+
+.filosofi-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.filosofi-highlight {
   background: var(--gradient-2);
   color: white;
   padding: 30px;
@@ -143,62 +141,57 @@ h6 {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.vision-mission-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.vm-card {
-  background: white;
+/* Visi Misi Section */
+.visi-misi-card {
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  height: 100%;
 }
 
-.vm-card:hover {
+.visi-misi-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.vm-card.vision {
+.visi-misi-card.visi-card {
   border-top: 5px solid var(--primary-orange);
 }
 
-.vm-card.mission {
+.visi-misi-card.misi-card {
   border-top: 5px solid var(--primary-purple);
 }
 
-.vm-card.goals {
+.visi-misi-card.tujuan-card {
   border-top: 5px solid var(--primary-blue);
 }
 
-.vm-card h3 {
+.visi-misi-card h3 {
   margin-bottom: 20px;
   font-size: 1.8rem;
 }
 
-.vm-card.vision h3 {
+.visi-misi-card.visi-card h3 {
   color: var(--primary-orange);
 }
 
-.vm-card.mission h3 {
+.visi-misi-card.misi-card h3 {
   color: var(--primary-purple);
 }
 
-.vm-card.goals h3 {
+.visi-misi-card.tujuan-card h3 {
   color: var(--primary-blue);
 }
 
-.numbered-list {
+/* Custom numbered list */
+.visi-misi-list {
   counter-reset: item;
   list-style: none;
   padding-left: 0;
 }
 
-.numbered-list li {
+.visi-misi-list li {
   counter-increment: item;
   margin-bottom: 20px;
   padding-left: 60px;
@@ -207,7 +200,7 @@ h6 {
   line-height: 1.7;
 }
 
-.numbered-list li::before {
+.visi-misi-list li::before {
   content: counter(item);
   position: absolute;
   left: 0;
@@ -224,60 +217,15 @@ h6 {
   font-size: 1.2rem;
 }
 
-.vm-card.mission .numbered-list li::before {
+.visi-misi-card.misi-card .visi-misi-list li::before {
   background: var(--gradient-2);
 }
 
-.vm-card.goals .numbered-list li::before {
+.visi-misi-card.tujuan-card .visi-misi-list li::before {
   background: var(--gradient-3);
 }
 
-.contact-section {
-  background: var(--primary-blue);
-  color: white;
-  padding: 60px 0;
-}
-
-.contact-info {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 30px;
-  backdrop-filter: blur(10px);
-}
-
-.social-icons a {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 0 10px;
-  transition: all 0.3s ease;
-  color: white;
-  text-decoration: none;
-}
-
-.social-icons a:hover {
-  background: var(--primary-orange);
-  transform: translateY(-3px);
-  color: white;
-}
-
-footer {
-  background: var(--soft-yellow);
-  padding: 20px 0;
-}
-
-.footer-title {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.footer-title:hover {
-  color: white;
-}
-
+/* Animations */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -303,18 +251,33 @@ footer {
   animation-delay: 0.6s;
 }
 
+.social-icons a {
+  transition: all 0.3s ease !important;
+}
+
+.footer-title:hover {
+  color: white !important;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .section-title {
+  .latar-belakang-title,
+  .filosofi-title,
+  .visi-misi-title {
     font-size: 2rem;
   }
-  .content-card {
+
+  .latar-belakang-card,
+  .filosofi-card {
     padding: 25px;
   }
-  .numbered-list li {
+
+  .visi-misi-list li {
     padding-left: 50px;
     font-size: 1rem;
   }
-  .numbered-list li::before {
+
+  .visi-misi-list li::before {
     width: 35px;
     height: 35px;
     font-size: 1rem;
