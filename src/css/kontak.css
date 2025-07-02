@@ -69,6 +69,7 @@ h6 {
 /* END NAVBAR */
 
 /* Contact Details Section */
+/* Contact Details Section */
 .contact-details-section {
   background: linear-gradient(
     135deg,
@@ -93,16 +94,16 @@ h6 {
   font-size: 2.5rem;
   color: var(--primary-blue);
   position: relative;
+  margin-bottom: 2rem; /* Tambah margin untuk ruang garis */
 }
 
 .contact-details-title::after {
   content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 0;
+  display: block;
   width: 60px;
   height: 4px;
-  background: var(--gradient-primary);
+  background: var(--gradient-1);
+  margin-top: 10px;
   border-radius: 2px;
 }
 
