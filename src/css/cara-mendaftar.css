@@ -32,72 +32,57 @@ h6 {
   font-weight: 600;
 }
 
-/* Enhanced Navbar */
-.navbar {
+/* NAVBAR */
+.navbar-custom {
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.navbar-brand h2 {
-  font-size: 1.8rem;
-  margin: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-nav {
-  gap: 8px; /* Jarak antar semua item - INI YANG DITAMBAHKAN */
-}
-
-.navbar-nav .nav-link {
+.nav-link-custom {
   font-weight: 500;
-  padding: 10px 15px !important;
-  margin: 0 2px; /* Margin tambahan - INI YANG DITAMBAHKAN */
-  border-radius: 20px;
-  transition: all 0.3s ease;
   color: var(--primary-blue) !important;
+  transition: all 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  background: var(--gradient-1);
+.nav-link-custom:hover,
+.nav-link-custom.active {
+  background: var(--gradient-1) !important;
   color: white !important;
   transform: translateY(-2px);
 }
 
-.dropdown-menu {
+.dropdown-menu-custom {
   border: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
-  padding: 10px;
 }
 
-.dropdown-item {
-  border-radius: 10px;
-  padding: 8px 15px;
+.dropdown-item-custom {
   transition: all 0.3s ease;
 }
 
-.dropdown-item:hover {
-  background: var(--gradient-2);
-  color: white;
+.dropdown-item-custom:hover {
+  background: var(--gradient-2) !important;
+  color: white !important;
   transform: translateX(5px);
 }
+/* END NAVBAR */
 
-/* New Section Styling */
-.section-padding {
-  padding: 80px 0;
+/* Registration Guide Section */
+.registration-guide {
+  background: linear-gradient(
+    135deg,
+    var(--soft-yellow) 0%,
+    var(--light-pink) 100%
+  );
 }
 
-.section-title {
-  font-size: 2.5rem;
+.registration-guide-title {
   color: var(--primary-blue);
-  margin-bottom: 2rem;
   position: relative;
 }
 
-.section-title::after {
+.registration-guide-title::after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -109,107 +94,88 @@ h6 {
   border-radius: 2px;
 }
 
-/* Form Styling */
-.form-section {
-  background: linear-gradient(
-    135deg,
-    var(--soft-yellow) 0%,
-    var(--light-pink) 100%
-  );
+.registration-steps {
+  counter-reset: step-counter;
 }
 
-.form-card {
+.registration-steps li {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 1.5rem;
+}
+
+.registration-steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--gradient-1);
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* Registration Form Section */
+.registration-form-section {
+  background: white;
+}
+
+.registration-form-title {
+  color: var(--primary-blue);
+  position: relative;
+}
+
+.registration-form-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-1);
+  border-radius: 2px;
+}
+
+.registration-form-card {
   background: white;
   border-radius: 20px;
-  padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.form-control {
+.registration-form-control {
   border-radius: 10px;
-  padding: 12px 15px;
   border: 1px solid #ced4da;
+  transition: all 0.3s ease;
 }
 
-.form-control:focus {
+.registration-form-control:focus {
   border-color: var(--primary-orange);
   box-shadow: 0 0 0 0.25rem rgba(255, 107, 53, 0.25);
 }
 
-.cta-button {
-  background: white;
-  color: var(--primary-orange);
+.registration-submit-btn {
+  background: var(--gradient-1);
+  color: white;
   border: none;
-  padding: 15px 40px;
   border-radius: 50px;
-  font-size: 1.2rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
 }
 
-.cta-button:hover {
+.registration-submit-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  color: var(--primary-orange);
-}
-
-/* Contact & Footer */
-.contact-section {
-  background: var(--primary-blue);
+  box-shadow: 0 15px 30px rgba(255, 107, 53, 0.4);
   color: white;
-  padding: 60px 0;
-}
-
-.contact-info {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 30px;
-  backdrop-filter: blur(10px);
-}
-
-.social-icons a {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 10px;
-  transition: all 0.3s ease;
-  color: white;
-  text-decoration: none;
-}
-
-.social-icons a:hover {
-  background: var(--primary-orange);
-  transform: translateY(-3px);
-  color: white;
-}
-
-footer {
-  background: var(--soft-yellow);
-  padding: 20px 0;
-}
-
-.footer-title {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.footer-title:hover {
-  color: white;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
 }
 
 /* Animations */
@@ -229,59 +195,27 @@ footer {
 .animate-delay-1 {
   animation-delay: 0.2s;
 }
+
 .animate-delay-2 {
   animation-delay: 0.4s;
 }
 
-/* Ripple effect for buttons */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(0);
-  animation: ripple-animation 0.6s linear;
-  pointer-events: none;
+/* CONTACT SECTION */
+.social-icons a {
+  transition: all 0.3s ease !important;
 }
+/* END CONTACT SECTION */
 
-@keyframes ripple-animation {
-  to {
-    transform: scale(2);
-    opacity: 0;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .registration-guide-title,
+  .registration-form-title {
+    font-size: 2rem;
   }
-}
 
-/* Additional hover animations */
-.feature-card:hover .feature-icon {
-  animation: bounce 0.6s ease;
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  60%,
-  100% {
-    transform: translateY(0);
+  .registration-steps li {
+    padding-left: 35px;
   }
-  40% {
-    transform: translateY(-10px);
-  }
-  80% {
-    transform: translateY(-5px);
-  }
-}
-
-/* Loading animation for images */
-img {
-  transition: opacity 0.3s ease;
-}
-
-img:not([src]) {
-  opacity: 0;
-}
-
-/* Smooth transitions for all interactive elements */
-* {
-  transition: all 0.3s ease;
 }
 
 /* Custom scrollbar */

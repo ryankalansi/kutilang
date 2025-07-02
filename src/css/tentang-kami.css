@@ -255,10 +255,6 @@ h6 {
   transition: all 0.3s ease !important;
 }
 
-.footer-title:hover {
-  color: white !important;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .latar-belakang-title,

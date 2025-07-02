@@ -186,11 +186,6 @@ h6 {
   transition: all 0.3s ease !important;
 }
 
-/* Footer */
-.footer-title:hover {
-  color: white !important;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .sentra-title {

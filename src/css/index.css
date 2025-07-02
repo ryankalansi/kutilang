@@ -416,12 +416,6 @@ h6 {
 }
 /* END CONTACT SECTION */
 
-/* FOOTER  */
-.footer-title:hover {
-  color: white !important;
-}
-/* END FOOTER  */
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
