@@ -3,57 +3,158 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Admin - TK</title>
+    <title>Dashboard Admin - TK Kutilang</title>
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <style>
-      .navbar-brand {
-        font-weight: bold;
+      :root {
+        --light-bg: #f4f7fc;
+        --sidebar-bg: #13294b; /* Biru Tua dari web utama */
+        --sidebar-link: rgba(255, 255, 255, 0.8);
+        --sidebar-link-hover: #fff;
+        --sidebar-active-bg: #ff6b35; /* Oranye dari web utama */
+        --font-main: "Roboto", sans-serif;
+        --font-heading: "Fredoka", sans-serif;
+      }
+      body {
+        background-color: var(--light-bg);
+        font-family: var(--font-main);
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-heading);
+      }
+      .wrapper {
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+      #sidebar {
+        min-width: 250px;
+        max-width: 250px;
+        background: var(--sidebar-bg);
+        color: #fff;
+        transition: all 0.3s;
+        position: fixed;
+        height: 100%;
+      }
+      #sidebar.active {
+        margin-left: -250px;
+      }
+      #sidebar .sidebar-header {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      #sidebar ul.components {
+        padding: 20px 0;
+      }
+      #sidebar ul li a {
+        padding: 15px 20px;
+        font-size: 1.1em;
+        display: block;
+        color: var(--sidebar-link);
+        transition: all 0.2s;
+      }
+      #sidebar ul li a:hover {
+        color: var(--sidebar-link-hover);
+        background: rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+      }
+      #sidebar ul li.active > a {
+        color: #fff;
+        background: var(--sidebar-active-bg);
+      }
+      #content {
+        width: calc(100% - 250px);
+        padding: 2rem;
+        min-height: 100vh;
+        transition: all 0.3s;
+        margin-left: 250px;
+      }
+      .card {
+        border: none;
+        border-radius: 0.75rem;
       }
       .card-stats {
-        border-left: 4px solid #007bff;
+        border-left: 5px solid;
+        transition: all 0.3s ease;
       }
-      .table-container {
-        max-height: 500px;
-        overflow-y: auto;
+      .card-stats:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+      }
+      .card-stats .bi {
+        font-size: 2.5rem;
+        opacity: 0.3;
+      }
+      .card-stats-total {
+        border-color: #0d6efd;
+      }
+      .card-stats-monthly {
+        border-color: #198754;
+      }
+      .card-stats-male {
+        border-color: #0dcaf0;
+      }
+      .card-stats-female {
+        border-color: #ff6b35;
+      }
+      .table-hover tbody tr:hover {
+        background-color: #fff3cd;
+      }
+      .action-btn {
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .action-btn:hover {
+        opacity: 1;
+      }
+      .toast-container {
+        z-index: 1090;
+      }
+      .hidden {
+        display: none;
       }
       .login-container {
         max-width: 400px;
         margin: 100px auto;
       }
-      .hidden {
-        display: none;
+      .badge-Laki-laki {
+        background-color: #0dcaf0;
+        color: #000;
       }
-      .badge-laki {
-        background-color: #007bff;
-      }
-      .badge-perempuan {
-        background-color: #e91e63;
-      }
-      .search-filter {
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
+      .badge-Perempuan {
+        background-color: #e83e8c;
+        color: white;
       }
     </style>
   </head>
   <body>
-    <!-- Login Section -->
     <div id="loginSection">
       <div class="container">
         <div class="login-container">
-          <div class="card shadow">
-            <div class="card-header text-center bg-primary text-white">
-              <h4><i class="bi bi-person-check"></i> Login Admin TK</h4>
+          <div class="card shadow-lg">
+            <div class="card-header text-center bg-primary text-white p-3">
+              <h4 class="mb-0">
+                <i class="bi bi-person-check-fill"></i> Login Admin
+              </h4>
             </div>
-            <div class="card-body">
+            <div class="card-body p-4">
               <form id="loginForm">
                 <div class="mb-3">
                   <label for="adminPassword" class="form-label"
@@ -61,7 +162,7 @@
                   >
                   <div class="input-group">
                     <span class="input-group-text"
-                      ><i class="bi bi-lock"></i
+                      ><i class="bi bi-lock-fill"></i
                     ></span>
                     <input
                       type="password"
@@ -72,8 +173,8 @@
                   </div>
                 </div>
                 <div class="d-grid">
-                  <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-box-arrow-in-right me-2"></i>Masuk Dashboard
+                  <button type="submit" class="btn btn-primary fw-bold">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Masuk
                   </button>
                 </div>
               </form>
@@ -86,147 +187,314 @@
       </div>
     </div>
 
-    <!-- Dashboard Section -->
-    <div id="dashboardSection" class="hidden">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-          <span class="navbar-brand">
-            <i class="bi bi-house-heart me-2"></i>Dashboard Admin TK
-          </span>
-          <div class="navbar-nav ms-auto">
-            <button class="btn btn-outline-light btn-sm" id="logoutBtn">
-              <i class="bi bi-box-arrow-right me-1"></i>Logout
-            </button>
-          </div>
+    <div id="dashboardSection" class="wrapper hidden">
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <h3><i class="bi bi-house-heart-fill"></i> TK Kutilang</h3>
         </div>
+        <ul class="list-unstyled components">
+          <li class="active">
+            <a href="#"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+          </li>
+          <li>
+            <a href="#" id="logoutBtn"
+              ><i class="bi bi-box-arrow-left me-2"></i>Logout</a
+            >
+          </li>
+        </ul>
       </nav>
 
-      <div class="container-fluid mt-4">
-        <!-- Stats Cards -->
-        <div class="row mb-4">
-          <div class="col-md-3">
-            <div class="card card-stats text-center">
+      <div id="content">
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-white mb-4 rounded shadow-sm"
+        >
+          <div class="container-fluid">
+            <h4 class="mb-0">Dashboard Admin</h4>
+            <span class="navbar-text fw-bold">Selamat Datang!</span>
+          </div>
+        </nav>
+
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-stats card-stats-total shadow-sm">
               <div class="card-body">
-                <h5 class="card-title text-primary">Total Pendaftaran</h5>
-                <h2 id="totalRegistrations" class="text-dark">0</h2>
-                <small class="text-muted">Semua data</small>
+                <div class="row">
+                  <div class="col-8 text-start">
+                    <p class="card-title text-muted mb-1">Total Pendaftar</p>
+                    <h3 id="totalRegistrations" class="mb-0">0</h3>
+                  </div>
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-end text-primary"
+                  >
+                    <i class="bi bi-people-fill"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card card-stats text-center">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-stats card-stats-monthly shadow-sm">
               <div class="card-body">
-                <h5 class="card-title text-success">Bulan Ini</h5>
-                <h2 id="monthlyRegistrations" class="text-dark">0</h2>
-                <small class="text-muted">Pendaftaran baru</small>
+                <div class="row">
+                  <div class="col-8 text-start">
+                    <p class="card-title text-muted mb-1">Bulan Ini</p>
+                    <h3 id="monthlyRegistrations" class="mb-0">0</h3>
+                  </div>
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-end text-success"
+                  >
+                    <i class="bi bi-calendar-check-fill"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card card-stats text-center">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-stats card-stats-male shadow-sm">
               <div class="card-body">
-                <h5 class="card-title text-info">Laki-laki</h5>
-                <h2 id="maleCount" class="text-dark">0</h2>
-                <small class="text-muted">Siswa</small>
+                <div class="row">
+                  <div class="col-8 text-start">
+                    <p class="card-title text-muted mb-1">Laki-Laki</p>
+                    <h3 id="maleCount" class="mb-0">0</h3>
+                  </div>
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-end text-info"
+                  >
+                    <i class="bi bi-gender-male"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card card-stats text-center">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-stats card-stats-female shadow-sm">
               <div class="card-body">
-                <h5 class="card-title text-warning">Perempuan</h5>
-                <h2 id="femaleCount" class="text-dark">0</h2>
-                <small class="text-muted">Siswa</small>
+                <div class="row">
+                  <div class="col-8 text-start">
+                    <p class="card-title text-muted mb-1">Perempuan</p>
+                    <h3 id="femaleCount" class="mb-0">0</h3>
+                  </div>
+                  <div
+                    class="col-4 d-flex align-items-center justify-content-end"
+                    style="color: #ff6b35"
+                  >
+                    <i class="bi bi-gender-female"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Search & Filter -->
-        <div class="search-filter">
-          <div class="row">
-            <div class="col-md-4">
-              <label class="form-label">Cari Nama</label>
-              <div class="input-group">
-                <span class="input-group-text"
-                  ><i class="bi bi-search"></i
-                ></span>
-                <input
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <div
+              class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2"
+            >
+              <h5 class="mb-0">Manajemen Data Pendaftar</h5>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#createModal"
+              >
+                <i class="bi bi-plus-circle me-2"></i>Tambah Data
+              </button>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label">Cari Data</label
+                ><input
                   type="text"
                   class="form-control"
                   id="searchInput"
-                  placeholder="Nama anak atau orang tua"
+                  placeholder="Nama, email..."
                 />
               </div>
-            </div>
-            <div class="col-md-3">
-              <label class="form-label">Filter Gender</label>
-              <select class="form-select" id="genderFilter">
-                <option value="">Semua Gender</option>
-                <option value="Laki-laki">Laki-laki</option>
-                <option value="Perempuan">Perempuan</option>
-              </select>
-            </div>
-            <div class="col-md-3">
-              <label class="form-label">Filter Bulan</label>
-              <select class="form-select" id="monthFilter">
-                <option value="">Semua Bulan</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label class="form-label">&nbsp;</label>
-              <div class="d-grid">
+              <div class="col-md-3">
+                <label class="form-label">Filter Gender</label
+                ><select class="form-select" id="genderFilter">
+                  <option value="">Semua Gender</option>
+                  <option value="Laki-laki">Laki-laki</option>
+                  <option value="Perempuan">Perempuan</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Filter Bulan</label
+                ><select class="form-select" id="monthFilter">
+                  <option value="">Semua Bulan</option>
+                </select>
+              </div>
+              <div class="col-md-2 d-grid align-content-end">
                 <button class="btn btn-success" id="exportBtn">
-                  <i class="bi bi-download me-1"></i>Export Excel
+                  <i class="bi bi-download me-1"></i>Export
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Data Table -->
-        <div class="card">
-          <div class="card-header">
-            <h5 class="mb-0">
-              <i class="bi bi-table me-2"></i>Data Pendaftaran
-            </h5>
-          </div>
+        <div class="card shadow-sm">
           <div class="card-body p-0">
-            <div class="table-container">
+            <div class="table-responsive">
               <table class="table table-striped table-hover mb-0">
-                <thead class="table-dark sticky-top">
+                <thead class="table-dark">
                   <tr>
                     <th>No</th>
                     <th>Tanggal</th>
                     <th>Nama Anak</th>
-                    <th>Tanggal Lahir</th>
                     <th>Gender</th>
                     <th>Nama Orang Tua</th>
                     <th>Email</th>
-                    <th>No. Telepon</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tbody id="dataTableBody">
-                  <!-- Data akan dimuat di sini -->
-                </tbody>
+                <tbody id="dataTableBody"></tbody>
               </table>
             </div>
+            <div id="loadingIndicator" class="text-center p-4">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <p class="mt-2">Memuat data...</p>
+            </div>
           </div>
-        </div>
-
-        <!-- Loading Indicator -->
-        <div id="loadingIndicator" class="text-center mt-4">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-          <p class="mt-2">Memuat data...</p>
         </div>
       </div>
     </div>
 
-    <!-- Edit Modal -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto" id="toastTitle"></strong
+          ><button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+          ></button>
+        </div>
+        <div class="toast-body" id="toastBody"></div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="createModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <i class="bi bi-person-plus-fill me-2"></i>Tambah Data Pendaftar
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <form id="createForm">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <h6>Informasi Anak</h6>
+                  <div class="mb-3">
+                    <label class="form-label">Nama Lengkap Anak</label
+                    ><input
+                      type="text"
+                      class="form-control"
+                      id="createChildFullName"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Tanggal Lahir</label
+                    ><input
+                      type="date"
+                      class="form-control"
+                      id="createChildDOB"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="form-label">Jenis Kelamin</label
+                    ><select
+                      class="form-select"
+                      id="createChildGender"
+                      required
+                    >
+                      <option value="">Pilih...</option>
+                      <option value="Laki-laki">Laki-laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <h6>Informasi Orang Tua</h6>
+                  <div class="mb-3">
+                    <label class="form-label">Nama Orang Tua</label
+                    ><input
+                      type="text"
+                      class="form-control"
+                      id="createParentName"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Email</label
+                    ><input
+                      type="email"
+                      class="form-control"
+                      id="createParentEmail"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="form-label">No. Telepon</label
+                    ><input
+                      type="tel"
+                      class="form-control"
+                      id="createParentPhoneNumber"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Alamat Lengkap</label
+                ><textarea
+                  class="form-control"
+                  id="createAddress"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div>
+                <label class="form-label">Informasi Tambahan</label
+                ><textarea
+                  class="form-control"
+                  id="createAdditionalInfo"
+                  rows="2"
+                ></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Batal</button
+              ><button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-lg me-1"></i>Simpan
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <div class="modal fade" id="editModal" tabindex="-1">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -243,11 +511,11 @@
           <form id="editForm">
             <div class="modal-body">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                   <h6>Informasi Anak</h6>
                   <div class="mb-3">
-                    <label class="form-label">Nama Lengkap Anak</label>
-                    <input
+                    <label class="form-label">Nama Lengkap Anak</label
+                    ><input
                       type="text"
                       class="form-control"
                       id="editChildFullName"
@@ -255,28 +523,28 @@
                     />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Tanggal Lahir</label>
-                    <input
+                    <label class="form-label">Tanggal Lahir</label
+                    ><input
                       type="date"
                       class="form-control"
                       id="editChildDOB"
                       required
                     />
                   </div>
-                  <div class="mb-3">
-                    <label class="form-label">Jenis Kelamin</label>
-                    <select class="form-select" id="editChildGender" required>
-                      <option value="">Pilih Jenis Kelamin</option>
+                  <div>
+                    <label class="form-label">Jenis Kelamin</label
+                    ><select class="form-select" id="editChildGender" required>
+                      <option value="">Pilih...</option>
                       <option value="Laki-laki">Laki-laki</option>
                       <option value="Perempuan">Perempuan</option>
                     </select>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                   <h6>Informasi Orang Tua</h6>
                   <div class="mb-3">
-                    <label class="form-label">Nama Orang Tua</label>
-                    <input
+                    <label class="form-label">Nama Orang Tua</label
+                    ><input
                       type="text"
                       class="form-control"
                       id="editParentName"
@@ -284,17 +552,17 @@
                     />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input
+                    <label class="form-label">Email</label
+                    ><input
                       type="email"
                       class="form-control"
                       id="editParentEmail"
                       required
                     />
                   </div>
-                  <div class="mb-3">
-                    <label class="form-label">No. Telepon</label>
-                    <input
+                  <div>
+                    <label class="form-label">No. Telepon</label
+                    ><input
                       type="tel"
                       class="form-control"
                       id="editParentPhoneNumber"
@@ -304,17 +572,17 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label class="form-label">Alamat Lengkap</label>
-                <textarea
+                <label class="form-label">Alamat Lengkap</label
+                ><textarea
                   class="form-control"
                   id="editAddress"
                   rows="3"
                   required
                 ></textarea>
               </div>
-              <div class="mb-3">
-                <label class="form-label">Informasi Tambahan</label>
-                <textarea
+              <div>
+                <label class="form-label">Informasi Tambahan</label
+                ><textarea
                   class="form-control"
                   id="editAdditionalInfo"
                   rows="2"
@@ -328,9 +596,8 @@
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Batal
-              </button>
-              <button type="submit" class="btn btn-primary">
+                Batal</button
+              ><button type="submit" class="btn btn-primary">
                 <i class="bi bi-check-lg me-1"></i>Simpan Perubahan
               </button>
             </div>
@@ -351,9 +618,7 @@
               data-bs-dismiss="modal"
             ></button>
           </div>
-          <div class="modal-body" id="modalBody">
-            <!-- Detail akan dimuat di sini -->
-          </div>
+          <div class="modal-body" id="detailModalBody"></div>
           <div class="modal-footer">
             <button
               type="button"
@@ -367,107 +632,92 @@
       </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Configuration - Ganti dengan URL Apps Script Web App Anda
-      const APPS_SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbwzCegrn_pGgKHVOFu77LCsZuj1xI9Uf2VL2Dk9EcFnBH5I8xM2WApxnOi3szKn1DjcSw/exec";
+      const API_BASE_URL = "/kutilang/api/"; // Path absolut dari root web server
+      const API_GET_URL = API_BASE_URL + "ambil-data.php";
+      const API_MANAGE_URL = API_BASE_URL + "kelola-data.php";
+      const API_EXPORT_URL = API_BASE_URL + "export-csv.php";
       const ADMIN_PASSWORD = "admin123";
 
-      let allData = [];
-      let filteredData = [];
+      let allData = [],
+        filteredData = [];
+      const liveToast = new bootstrap.Toast(
+        document.getElementById("liveToast")
+      );
 
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const password = document.getElementById("adminPassword").value;
-
-          if (password === ADMIN_PASSWORD) {
-            document.getElementById("loginSection").classList.add("hidden");
-            document
-              .getElementById("dashboardSection")
-              .classList.remove("hidden");
-            loadDashboard();
-          } else {
-            document.getElementById("loginError").classList.remove("hidden");
-          }
-        });
-
-      document
-        .getElementById("logoutBtn")
-        .addEventListener("click", function () {
-          document.getElementById("dashboardSection").classList.add("hidden");
-          document.getElementById("loginSection").classList.remove("hidden");
-          document.getElementById("adminPassword").value = "";
-          document.getElementById("loginError").classList.add("hidden");
-        });
-
-      // Load Dashboard Data
-      async function loadDashboard() {
-        document.getElementById("loadingIndicator").style.display = "block";
-
-        try {
-          // Fetch real data from Apps Script
-          const response = await fetch(
-            `${APPS_SCRIPT_URL}?action=getData&password=${ADMIN_PASSWORD}`
-          );
-          const result = await response.json();
-
-          if (result.status === "success") {
-            allData = result.data;
-            filteredData = [...allData];
-          } else {
-            console.error("Error loading data:", result.message);
-            // Fallback to sample data
-            allData = sampleData;
-            filteredData = [...allData];
-          }
-        } catch (error) {
-          console.error("Failed to load data:", error);
-          // Fallback to sample data untuk demo
-          allData = sampleData;
-          filteredData = [...allData];
-        }
-
-        updateStats();
-        populateFilters();
-        renderTable();
-
-        document.getElementById("loadingIndicator").style.display = "none";
+      function showToast(title, message, type = "success") {
+        const toastHeader = document.querySelector("#liveToast .toast-header");
+        document.getElementById("toastTitle").textContent = title;
+        document.getElementById("toastBody").textContent = message;
+        toastHeader.className = "toast-header text-white";
+        toastHeader.classList.add(
+          type === "success" ? "bg-success" : "bg-danger"
+        );
+        liveToast.show();
       }
 
-      // Update Statistics
+      document.getElementById("loginForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (document.getElementById("adminPassword").value === ADMIN_PASSWORD) {
+          document.getElementById("loginSection").classList.add("hidden");
+          document
+            .getElementById("dashboardSection")
+            .classList.remove("hidden");
+          loadDashboard();
+        } else {
+          document.getElementById("loginError").classList.remove("hidden");
+        }
+      });
+
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        document.getElementById("dashboardSection").classList.add("hidden");
+        document.getElementById("loginSection").classList.remove("hidden");
+        document.getElementById("adminPassword").value = "";
+      });
+
+      async function loadDashboard() {
+        document.getElementById("loadingIndicator").style.display = "block";
+        try {
+          const response = await fetch(API_GET_URL);
+          if (!response.ok)
+            throw new Error(`HTTP error! status: ${response.status}`);
+          const result = await response.json();
+          if (result.status === "success") {
+            allData = result.data;
+            updateStats();
+            populateFilters();
+            applyFilters(); // Apply filter to render table
+          } else {
+            throw new Error(result.message);
+          }
+        } catch (error) {
+          showToast("Error", "Gagal memuat data: " + error.message, "error");
+        } finally {
+          document.getElementById("loadingIndicator").style.display = "none";
+        }
+      }
+
       function updateStats() {
         const total = allData.length;
         const currentMonth = new Date().getMonth();
-        const currentYear = new Date().getFullYear();
-
-        const monthlyCount = allData.filter((item) => {
-          const itemDate = new Date(item.timestamp);
-          return (
-            itemDate.getMonth() === currentMonth &&
-            itemDate.getFullYear() === currentYear
-          );
-        }).length;
-
-        const maleCount = allData.filter(
-          (item) => item.childGender === "Laki-laki"
+        const monthlyCount = allData.filter(
+          (i) => new Date(i.timestamp).getMonth() === currentMonth
         ).length;
-        const femaleCount = allData.filter(
-          (item) => item.childGender === "Perempuan"
-        ).length;
-
         document.getElementById("totalRegistrations").textContent = total;
         document.getElementById("monthlyRegistrations").textContent =
           monthlyCount;
-        document.getElementById("maleCount").textContent = maleCount;
-        document.getElementById("femaleCount").textContent = femaleCount;
+        document.getElementById("maleCount").textContent = allData.filter(
+          (i) => i.childGender === "Laki-laki"
+        ).length;
+        document.getElementById("femaleCount").textContent = allData.filter(
+          (i) => i.childGender === "Perempuan"
+        ).length;
       }
 
-      // Populate Filter Options
       function populateFilters() {
         const monthFilter = document.getElementById("monthFilter");
+        monthFilter.innerHTML = '<option value="">Semua Bulan</option>';
         const months = [
           "Januari",
           "Februari",
@@ -482,131 +732,194 @@
           "November",
           "Desember",
         ];
-
         const uniqueMonths = [
-          ...new Set(
-            allData.map((item) => {
-              const date = new Date(item.timestamp);
-              return `${date.getFullYear()}-${date.getMonth()}`;
-            })
-          ),
-        ];
-
-        uniqueMonths.forEach((monthKey) => {
-          const [year, month] = monthKey.split("-");
+          ...new Set(allData.map((i) => i.timestamp.substring(0, 7))),
+        ]
+          .sort()
+          .reverse();
+        uniqueMonths.forEach((ym) => {
+          const [year, month] = ym.split("-");
           const option = document.createElement("option");
-          option.value = monthKey;
-          option.textContent = `${months[parseInt(month)]} ${year}`;
+          option.value = ym;
+          option.textContent = `${months[parseInt(month) - 1]} ${year}`;
           monthFilter.appendChild(option);
         });
       }
 
-      // Render Table
       function renderTable() {
         const tbody = document.getElementById("dataTableBody");
         tbody.innerHTML = "";
-
+        if (filteredData.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="7" class="text-center p-4">Data tidak ditemukan.</td></tr>';
+          return;
+        }
         filteredData.forEach((item, index) => {
           const row = document.createElement("tr");
-          const date = new Date(item.timestamp);
-          const formattedDate = date.toLocaleDateString("id-ID");
-          const genderBadge =
-            item.childGender === "Laki-laki" ? "badge-laki" : "badge-perempuan";
-
+          const badgeClass = `badge-${item.childGender.replace(/\s+/g, "-")}`;
           row.innerHTML = `
                     <td>${index + 1}</td>
-                    <td>${formattedDate}</td>
-                    <td><strong>${item.childFullName}</strong></td>
-                    <td>${new Date(item.childDOB).toLocaleDateString(
+                    <td>${new Date(item.timestamp).toLocaleDateString(
                       "id-ID"
                     )}</td>
-                    <td><span class="badge ${genderBadge}">${
+                    <td><strong>${item.childFullName}</strong></td>
+                    <td><span class="badge ${badgeClass}">${
             item.childGender
           }</span></td>
                     <td>${item.parentName}</td>
                     <td>${item.parentEmail}</td>
-                    <td>${item.parentPhoneNumber}</td>
                     <td>
-                        <button class="btn btn-sm btn-outline-primary me-1" onclick="showDetail(${index})">
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button class="btn btn-sm btn-outline-warning me-1" onclick="editData(${index})">
-                            <i class="bi bi-pencil"></i>
-                        </button>
-                        <button class="btn btn-sm btn-outline-danger" onclick="deleteData(${index})">
-                            <i class="bi bi-trash"></i>
-                        </button>
+                        <button class="btn btn-sm btn-outline-info action-btn" onclick="showDetail(${
+                          item.rowIndex
+                        })" title="Lihat Detail"><i class="bi bi-eye"></i></button>
+                        <button class="btn btn-sm btn-outline-warning action-btn" onclick="editData(${
+                          item.rowIndex
+                        })" title="Edit Data"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-sm btn-outline-danger action-btn" onclick="deleteData(${
+                          item.rowIndex
+                        },'${
+            item.childFullName
+          }')" title="Hapus Data"><i class="bi bi-trash"></i></button>
                     </td>
                 `;
           tbody.appendChild(row);
         });
       }
 
-      // Show Detail Modal
-      function showDetail(index) {
-        const item = filteredData[index];
-        const modalBody = document.getElementById("modalBody");
-
-        modalBody.innerHTML = `
-                <div class="row">
-                    <div class="col-md-6">
-                        <h6>Informasi Anak</h6>
-                        <table class="table table-sm">
-                            <tr><td><strong>Nama Lengkap:</strong></td><td>${
-                              item.childFullName
-                            }</td></tr>
-                            <tr><td><strong>Tanggal Lahir:</strong></td><td>${new Date(
-                              item.childDOB
-                            ).toLocaleDateString("id-ID")}</td></tr>
-                            <tr><td><strong>Jenis Kelamin:</strong></td><td>${
-                              item.childGender
-                            }</td></tr>
-                        </table>
-                    </div>
-                    <div class="col-md-6">
-                        <h6>Informasi Orang Tua</h6>
-                        <table class="table table-sm">
-                            <tr><td><strong>Nama:</strong></td><td>${
-                              item.parentName
-                            }</td></tr>
-                            <tr><td><strong>Email:</strong></td><td>${
-                              item.parentEmail
-                            }</td></tr>
-                            <tr><td><strong>No. Telepon:</strong></td><td>${
-                              item.parentPhoneNumber
-                            }</td></tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12">
-                        <h6>Alamat</h6>
-                        <p>${item.address}</p>
-                        <h6>Informasi Tambahan</h6>
-                        <p>${
-                          item.additionalInfo || "Tidak ada informasi tambahan"
-                        }</p>
-                        <h6>Waktu Pendaftaran</h6>
-                        <p>${new Date(item.timestamp).toLocaleString(
-                          "id-ID"
-                        )}</p>
-                    </div>
-                </div>
-            `;
-
+      function showDetail(rowIndex) {
+        const item = allData.find((d) => d.rowIndex == rowIndex);
+        document.getElementById(
+          "detailModalBody"
+        ).innerHTML = `<div class="row"><div class="col-md-6"><h6>Anak</h6><dl class="row"><dt class="col-sm-5">Nama:</dt><dd class="col-sm-7">${
+          item.childFullName
+        }</dd><dt class="col-sm-5">Tgl Lahir:</dt><dd class="col-sm-7">${new Date(
+          item.childDOB
+        ).toLocaleDateString(
+          "id-ID"
+        )}</dd><dt class="col-sm-5">Gender:</dt><dd class="col-sm-7">${
+          item.childGender
+        }</dd></dl></div><div class="col-md-6"><h6>Orang Tua</h6><dl class="row"><dt class="col-sm-4">Nama:</dt><dd class="col-sm-8">${
+          item.parentName
+        }</dd><dt class="col-sm-4">Email:</dt><dd class="col-sm-8">${
+          item.parentEmail
+        }</dd><dt class="col-sm-4">Telepon:</dt><dd class="col-sm-8">${
+          item.parentPhoneNumber
+        }</dd></dl></div></div><hr><h6>Alamat</h6><p>${
+          item.address
+        }</p><h6>Info Tambahan</h6><p>${
+          item.additionalInfo || "-"
+        }</p><small class="text-muted">Didaftarkan: ${new Date(
+          item.timestamp
+        ).toLocaleString("id-ID")}</small>`;
         new bootstrap.Modal(document.getElementById("detailModal")).show();
       }
 
-      // Search and Filter
+      function editData(rowIndex) {
+        const item = allData.find((d) => d.rowIndex == rowIndex);
+        [
+          "ChildFullName",
+          "ChildDOB",
+          "ChildGender",
+          "ParentName",
+          "ParentEmail",
+          "ParentPhoneNumber",
+          "Address",
+          "AdditionalInfo",
+        ].forEach((f) => {
+          document.getElementById(`edit${f}`).value =
+            item[f.charAt(0).toLowerCase() + f.slice(1)] || "";
+        });
+        document.getElementById("editRowIndex").value = item.rowIndex;
+        new bootstrap.Modal(document.getElementById("editModal")).show();
+      }
+
+      async function deleteData(rowIndex, childName) {
+        if (confirm(`Yakin ingin menghapus data "${childName}"?`)) {
+          try {
+            const response = await fetch(
+              `${API_MANAGE_URL}?action=deleteRow&rowIndex=${rowIndex}`
+            );
+            const result = await response.json();
+            if (result.status !== "success") throw new Error(result.message);
+            showToast(
+              "Sukses",
+              `Data ${childName} berhasil dihapus.`,
+              "success"
+            );
+            loadDashboard();
+          } catch (error) {
+            showToast("Error", "Gagal hapus data: " + error.message, "error");
+          }
+        }
+      }
+
       document
-        .getElementById("searchInput")
-        .addEventListener("input", applyFilters);
+        .getElementById("createForm")
+        .addEventListener("submit", (e) => handleFormSubmit(e));
       document
-        .getElementById("genderFilter")
-        .addEventListener("change", applyFilters);
-      document
-        .getElementById("monthFilter")
-        .addEventListener("change", applyFilters);
+        .getElementById("editForm")
+        .addEventListener("submit", (e) => handleFormSubmit(e));
+
+      async function handleFormSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const isEdit = form.id === "editForm";
+        const action = isEdit ? "edit" : "create";
+        const modalId = isEdit ? "editModal" : "createModal";
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+
+        const data = {};
+        const fields = [
+          "childFullName",
+          "childDOB",
+          "childGender",
+          "parentName",
+          "parentEmail",
+          "parentPhoneNumber",
+          "address",
+          "additionalInfo",
+        ];
+        fields.forEach(
+          (f) =>
+            (data[f] = document.getElementById(
+              `${action}${f.charAt(0).toUpperCase() + f.slice(1)}`
+            ).value)
+        );
+
+        try {
+          const response = await fetch(API_MANAGE_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              action,
+              rowIndex: isEdit
+                ? document.getElementById("editRowIndex").value
+                : undefined,
+              data,
+            }),
+          });
+          const result = await response.json();
+          if (result.status !== "success") throw new Error(result.message);
+
+          bootstrap.Modal.getInstance(document.getElementById(modalId)).hide();
+          form.reset();
+          showToast(
+            "Sukses",
+            `Data berhasil di${isEdit ? "update" : "tambahkan"}.`,
+            "success"
+          );
+          loadDashboard();
+        } catch (error) {
+          showToast("Error", `Gagal: ` + error.message, "error");
+        } finally {
+          submitBtn.disabled = false;
+        }
+      }
+
+      ["searchInput", "genderFilter", "monthFilter"].forEach((id) => {
+        document.getElementById(id).addEventListener("input", applyFilters);
+      });
 
       function applyFilters() {
         const searchTerm = document
@@ -614,180 +927,24 @@
           .value.toLowerCase();
         const genderFilter = document.getElementById("genderFilter").value;
         const monthFilter = document.getElementById("monthFilter").value;
-
-        filteredData = allData.filter((item) => {
-          const matchesSearch =
-            searchTerm === "" ||
-            item.childFullName.toLowerCase().includes(searchTerm) ||
-            item.parentName.toLowerCase().includes(searchTerm);
-
-          const matchesGender =
-            genderFilter === "" || item.childGender === genderFilter;
-
-          const matchesMonth =
-            monthFilter === "" ||
-            (() => {
-              const itemDate = new Date(item.timestamp);
-              const [year, month] = monthFilter.split("-");
-              return (
-                itemDate.getFullYear().toString() === year &&
-                itemDate.getMonth().toString() === month
-              );
-            })();
-
-          return matchesSearch && matchesGender && matchesMonth;
-        });
-
+        filteredData = allData.filter(
+          (item) =>
+            (searchTerm === "" ||
+              Object.values(item).some((val) =>
+                String(val).toLowerCase().includes(searchTerm)
+              )) &&
+            (genderFilter === "" || item.childGender === genderFilter) &&
+            (monthFilter === "" || item.timestamp.startsWith(monthFilter))
+        );
         renderTable();
       }
 
-      // Edit Data
-      function editData(index) {
-        const item = filteredData[index];
-
-        // Populate edit form
-        document.getElementById("editChildFullName").value = item.childFullName;
-        document.getElementById("editChildDOB").value = item.childDOB;
-        document.getElementById("editChildGender").value = item.childGender;
-        document.getElementById("editParentName").value = item.parentName;
-        document.getElementById("editParentEmail").value = item.parentEmail;
-        document.getElementById("editParentPhoneNumber").value =
-          item.parentPhoneNumber;
-        document.getElementById("editAddress").value = item.address;
-        document.getElementById("editAdditionalInfo").value =
-          item.additionalInfo || "";
-        document.getElementById("editRowIndex").value = item.rowIndex;
-
-        new bootstrap.Modal(document.getElementById("editModal")).show();
-      }
-
-      // Handle Edit Form Submit
-      document
-        .getElementById("editForm")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
-
-          const submitBtn = this.querySelector('button[type="submit"]');
-          const originalText = submitBtn.innerHTML;
-          submitBtn.disabled = true;
-          submitBtn.innerHTML =
-            '<i class="bi bi-hourglass-split me-1"></i>Menyimpan...';
-
-          const formData = {
-            action: "edit",
-            rowIndex: document.getElementById("editRowIndex").value,
-            data: {
-              childFullName: document.getElementById("editChildFullName").value,
-              childDOB: document.getElementById("editChildDOB").value,
-              childGender: document.getElementById("editChildGender").value,
-              parentName: document.getElementById("editParentName").value,
-              parentEmail: document.getElementById("editParentEmail").value,
-              parentPhoneNumber: document.getElementById(
-                "editParentPhoneNumber"
-              ).value,
-              address: document.getElementById("editAddress").value,
-              additionalInfo:
-                document.getElementById("editAdditionalInfo").value,
-            },
-          };
-
-          try {
-            const response = await fetch(APPS_SCRIPT_URL, {
-              method: "POST",
-              mode: "no-cors",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(formData),
-            });
-
-            // Close modal and refresh data
-            bootstrap.Modal.getInstance(
-              document.getElementById("editModal")
-            ).hide();
-            alert("Data berhasil diupdate!");
-            loadDashboard();
-          } catch (error) {
-            console.error("Error updating data:", error);
-            alert("Terjadi kesalahan saat mengupdate data");
-          } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-          }
-        });
-
-      // Delete Data
-      async function deleteData(index) {
-        const item = filteredData[index];
-
-        if (
-          confirm(
-            `Apakah Anda yakin ingin menghapus data pendaftaran ${item.childFullName}?`
-          )
-        ) {
-          try {
-            const response = await fetch(
-              `${APPS_SCRIPT_URL}?action=deleteRow&rowIndex=${item.rowIndex}&password=${ADMIN_PASSWORD}`
-            );
-            const result = await response.json();
-
-            if (result.status === "success") {
-              alert("Data berhasil dihapus!");
-              loadDashboard();
-            } else {
-              alert("Gagal menghapus data: " + result.message);
-            }
-          } catch (error) {
-            console.error("Error deleting data:", error);
-            alert("Terjadi kesalahan saat menghapus data");
-          }
-        }
-      }
-
-      // Export to Excel
       document
         .getElementById("exportBtn")
-        .addEventListener("click", async function () {
-          try {
-            const response = await fetch(
-              `${APPS_SCRIPT_URL}?action=exportData&password=${ADMIN_PASSWORD}`
-            );
-            const csvContent = await response.text();
-
-            // Create download link
-            const blob = new Blob([csvContent], { type: "text/csv" });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.style.display = "none";
-            a.href = url;
-            a.download = "data_pendaftaran_tk.csv";
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-
-            alert("Data berhasil diexport!");
-          } catch (error) {
-            console.error("Error exporting data:", error);
-            alert("Terjadi kesalahan saat mengexport data");
-          }
-        });
-      let inactivityTimer;
-      function resetTimer() {
-        clearTimeout(inactivityTimer);
-        inactivityTimer = setTimeout(() => {
-          if (
-            !document
-              .getElementById("dashboardSection")
-              .classList.contains("hidden")
-          ) {
-            alert("Session expired. Silakan login kembali.");
-            document.getElementById("logoutBtn").click();
-          }
-        }, 30 * 60 * 1000); // 30 minutes
-      }
-
-      document.addEventListener("mousemove", resetTimer);
-      document.addEventListener("keypress", resetTimer);
-      document.addEventListener("click", resetTimer);
-      document.addEventListener("scroll", resetTimer);
+        .addEventListener(
+          "click",
+          () => (window.location.href = API_EXPORT_URL)
+        );
     </script>
   </body>
 </html>
