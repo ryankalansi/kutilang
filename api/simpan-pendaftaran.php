@@ -15,8 +15,9 @@ if (empty($data['nama_lengkap_anak']) || empty($data['email'])) {
 }
 
 // Menyiapkan statement untuk keamanan (mencegah SQL Injection)
+// PERBAIKAN DI SINI: Tambahkan tanda kurung () di sekitar nama kolom
 $stmt = $conn->prepare(
-    "INSERT INTO pendaftar nama_lengkap_anak, 
+    "INSERT INTO pendaftar (nama_lengkap_anak, 
             tanggal_lahir, 
             jenis_kelamin, 
             nama_orang_tua, 
@@ -25,6 +26,14 @@ $stmt = $conn->prepare(
             alamat, 
             informasi_tambahan) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
 );
+
+// Pengecekan apakah prepare berhasil
+if ($stmt === false) {
+    // Kirim pesan error dalam format JSON jika prepare gagal
+    echo json_encode(['status' => 'error', 'message' => 'Gagal menyiapkan statement SQL: ' . $conn->error]);
+    exit;
+}
+
 
 // Bind parameter ke statement
 $stmt->bind_param("ssssssss", 
