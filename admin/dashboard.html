@@ -859,19 +859,25 @@
 
       function editData(rowIndex) {
         const item = allData.find((d) => d.rowIndex == rowIndex);
-        [
-          "ChildFullName",
-          "ChildDOB",
-          "ChildGender",
-          "ParentName",
-          "ParentEmail",
-          "ParentPhoneNumber",
-          "Address",
-          "AdditionalInfo",
-        ].forEach((f) => {
-          document.getElementById(`edit${f}`).value =
-            item[f.charAt(0).toLowerCase() + f.slice(1)] || "";
-        });
+        if (!item) return; // Jika data tidak ditemukan, hentikan
+
+        document.getElementById("editChildFullName").value =
+          item.childFullName || "";
+        document.getElementById("editChildDOB").value = item.childDOB || "";
+        document.getElementById("editChildGender").value =
+          item.childGender || "";
+        document.getElementById("editParentName").value = item.parentName || "";
+        document.getElementById("editParentEmail").value =
+          item.parentEmail || "";
+        document.getElementById("editParentPhoneNumber").value =
+          item.parentPhoneNumber || "";
+        document.getElementById("editAddress").value = item.address || "";
+        document.getElementById("editAdditionalInfo").value =
+          item.additionalInfo || "";
+        // Menggunakan ID yang benar untuk edit modal
+        document.getElementById("edit_status_pembayaran").value =
+          item.status_pembayaran || "Belum Dicek";
+
         document.getElementById("editRowIndex").value = item.rowIndex;
         new bootstrap.Modal(document.getElementById("editModal")).show();
       }
@@ -911,35 +917,40 @@
         const modalId = isEdit ? "editModal" : "createModal";
         const submitBtn = form.querySelector('button[type="submit"]');
         submitBtn.disabled = true;
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML =
+          '<span class="spinner-border spinner-border-sm"></span> Menyimpan...';
 
-        const data = {};
-        const fields = [
-          "childFullName",
-          "childDOB",
-          "childGender",
-          "parentName",
-          "parentEmail",
-          "parentPhoneNumber",
-          "address",
-          "additionalInfo",
-        ];
-        fields.forEach(
-          (f) =>
-            (data[f] = document.getElementById(
-              `${action}${f.charAt(0).toUpperCase() + f.slice(1)}`
-            ).value)
-        );
+        // Membuat objek 'data' dengan key yang konsisten
+        const data = {
+          childFullName: document.getElementById(`${action}ChildFullName`)
+            .value,
+          childDOB: document.getElementById(`${action}ChildDOB`).value,
+          childGender: document.getElementById(`${action}ChildGender`).value,
+          parentName: document.getElementById(`${action}ParentName`).value,
+          parentEmail: document.getElementById(`${action}ParentEmail`).value,
+          parentPhoneNumber: document.getElementById(
+            `${action}ParentPhoneNumber`
+          ).value,
+          address: document.getElementById(`${action}Address`).value,
+          additionalInfo: document.getElementById(`${action}AdditionalInfo`)
+            .value,
+          // Menggunakan key "status_pembayaran" (snake_case) agar konsisten
+          status_pembayaran: document.getElementById(
+            `${action}_status_pembayaran`
+          ).value,
+        };
 
         try {
           const response = await fetch(API_MANAGE_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              action,
+              action: action,
               rowIndex: isEdit
                 ? document.getElementById("editRowIndex").value
                 : undefined,
-              data,
+              data: data,
             }),
           });
           const result = await response.json();
@@ -952,11 +963,12 @@
             `Data berhasil di${isEdit ? "update" : "tambahkan"}.`,
             "success"
           );
-          loadDashboard();
+          loadDashboard(); // Muat ulang data untuk melihat perubahan
         } catch (error) {
-          showToast("Error", `Gagal: ` + error.message, "error");
+          showToast("Error", `Gagal menyimpan: ${error.message}`, "error");
         } finally {
           submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
         }
       }
 
