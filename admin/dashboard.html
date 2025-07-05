@@ -406,7 +406,7 @@
                     ><input
                       type="text"
                       class="form-control"
-                      id="createChildFullName"
+                      id="create_nama_lengkap_anak"
                       required
                     />
                   </div>
@@ -415,7 +415,7 @@
                     ><input
                       type="date"
                       class="form-control"
-                      id="createChildDOB"
+                      id="create_tanggal_lahir"
                       required
                     />
                   </div>
@@ -423,7 +423,7 @@
                     <label class="form-label">Jenis Kelamin</label
                     ><select
                       class="form-select"
-                      id="createChildGender"
+                      id="create_jenis_kelamin"
                       required
                     >
                       <option value="">Pilih...</option>
@@ -439,7 +439,7 @@
                     ><input
                       type="text"
                       class="form-control"
-                      id="createParentName"
+                      id="create_nama_orang_tua"
                       required
                     />
                   </div>
@@ -448,7 +448,7 @@
                     ><input
                       type="email"
                       class="form-control"
-                      id="createParentEmail"
+                      id="create_email"
                       required
                     />
                   </div>
@@ -457,7 +457,7 @@
                     ><input
                       type="tel"
                       class="form-control"
-                      id="createParentPhoneNumber"
+                      id="create_nomor_telepon"
                       required
                     />
                   </div>
@@ -467,7 +467,7 @@
                 <label class="form-label">Alamat Lengkap</label
                 ><textarea
                   class="form-control"
-                  id="createAddress"
+                  id="create_alamat"
                   rows="3"
                   required
                 ></textarea>
@@ -476,7 +476,7 @@
                 <label class="form-label">Informasi Tambahan</label
                 ><textarea
                   class="form-control"
-                  id="createAdditionalInfo"
+                  id="create_informasi_tambahan"
                   rows="2"
                 ></textarea>
               </div>
@@ -533,7 +533,7 @@
                     ><input
                       type="text"
                       class="form-control"
-                      id="editChildFullName"
+                      id="edit_nama_lengkap_anak"
                       required
                     />
                   </div>
@@ -542,13 +542,17 @@
                     ><input
                       type="date"
                       class="form-control"
-                      id="editChildDOB"
+                      id="edit_tanggal_lahir"
                       required
                     />
                   </div>
                   <div>
                     <label class="form-label">Jenis Kelamin</label
-                    ><select class="form-select" id="editChildGender" required>
+                    ><select
+                      class="form-select"
+                      id="edit_jenis_kelamin"
+                      required
+                    >
                       <option value="">Pilih...</option>
                       <option value="Laki-laki">Laki-laki</option>
                       <option value="Perempuan">Perempuan</option>
@@ -562,7 +566,7 @@
                     ><input
                       type="text"
                       class="form-control"
-                      id="editParentName"
+                      id="edit_nama_orang_tua"
                       required
                     />
                   </div>
@@ -571,7 +575,7 @@
                     ><input
                       type="email"
                       class="form-control"
-                      id="editParentEmail"
+                      id="edit_email"
                       required
                     />
                   </div>
@@ -580,7 +584,7 @@
                     ><input
                       type="tel"
                       class="form-control"
-                      id="editParentPhoneNumber"
+                      id="edit_nomor_telepon"
                       required
                     />
                   </div>
@@ -590,7 +594,7 @@
                 <label class="form-label">Alamat Lengkap</label
                 ><textarea
                   class="form-control"
-                  id="editAddress"
+                  id="edit_alamat"
                   rows="3"
                   required
                 ></textarea>
@@ -599,7 +603,7 @@
                 <label class="form-label">Informasi Tambahan</label
                 ><textarea
                   class="form-control"
-                  id="editAdditionalInfo"
+                  id="edit_informasi_tambahan"
                   rows="2"
                 ></textarea>
               </div>
@@ -780,14 +784,13 @@
         tbody.innerHTML = "";
         if (filteredData.length === 0) {
           tbody.innerHTML =
-            '<tr><td colspan="8" class="text-center p-4">Data tidak ditemukan.</td></tr>'; // Ubah colspan menjadi 8
+            '<tr><td colspan="8" class="text-center p-4">Data tidak ditemukan.</td></tr>';
           return;
         }
         filteredData.forEach((item, index) => {
           const row = document.createElement("tr");
-          const badgeClass = `badge-${item.childGender.replace(/\s+/g, "-")}`;
+          const badgeClass = `badge-${item.jenis_kelamin.replace(/\s+/g, "-")}`;
 
-          // Logika untuk badge status pembayaran
           let statusBadge = "";
           switch (item.status_pembayaran) {
             case "Lunas":
@@ -802,15 +805,18 @@
                 '<span class="badge bg-secondary">Belum Dicek</span>';
           }
 
+          // Pastikan urutan <td> dan properti item.namakolom sudah sesuai
           row.innerHTML = `
             <td>${index + 1}</td>
-            <td>${new Date(item.timestamp).toLocaleDateString("id-ID")}</td>
-            <td><strong>${item.childFullName}</strong></td>
+            <td>${new Date(item.waktu_pendaftaran).toLocaleDateString(
+              "id-ID"
+            )}</td>
+            <td><strong>${item.nama_lengkap_anak}</strong></td>
             <td><span class="badge ${badgeClass}">${
-            item.childGender
+            item.jenis_kelamin
           }</span></td>
-            <td>${item.parentName}</td>
-            <td>${item.parentEmail}</td>
+            <td>${item.nama_orang_tua}</td>
+            <td>${item.email}</td>
             <td>${statusBadge}</td>
             <td>
                 <button class="btn btn-sm btn-outline-info action-btn" onclick="showDetail(${
@@ -822,7 +828,7 @@
                 <button class="btn btn-sm btn-outline-danger action-btn" onclick="deleteData(${
                   item.rowIndex
                 },'${
-            item.childFullName
+            item.nama_lengkap_anak
           }')" title="Hapus Data"><i class="bi bi-trash"></i></button>
             </td>
         `;
@@ -832,29 +838,45 @@
 
       function showDetail(rowIndex) {
         const item = allData.find((d) => d.rowIndex == rowIndex);
-        document.getElementById(
-          "detailModalBody"
-        ).innerHTML = `<div class="row"><div class="col-md-6"><h6>Anak</h6><dl class="row"><dt class="col-sm-5">Nama:</dt><dd class="col-sm-7">${
-          item.childFullName
-        }</dd><dt class="col-sm-5">Tgl Lahir:</dt><dd class="col-sm-7">${new Date(
-          item.childDOB
-        ).toLocaleDateString(
-          "id-ID"
-        )}</dd><dt class="col-sm-5">Gender:</dt><dd class="col-sm-7">${
-          item.childGender
-        }</dd></dl></div><div class="col-md-6"><h6>Orang Tua</h6><dl class="row"><dt class="col-sm-4">Nama:</dt><dd class="col-sm-8">${
-          item.parentName
-        }</dd><dt class="col-sm-4">Email:</dt><dd class="col-sm-8">${
-          item.parentEmail
-        }</dd><dt class="col-sm-4">Telepon:</dt><dd class="col-sm-8">${
-          item.parentPhoneNumber
-        }</dd></dl></div></div><hr><h6>Alamat</h6><p>${
-          item.address
-        }</p><h6>Info Tambahan</h6><p>${
-          item.additionalInfo || "-"
-        }</p><small class="text-muted">Didaftarkan: ${new Date(
-          item.timestamp
-        ).toLocaleString("id-ID")}</small>`;
+        if (!item) return;
+        const modalBody = document.getElementById("detailModalBody");
+        modalBody.innerHTML = `
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Anak</h6>
+                <dl class="row">
+                    <dt class="col-sm-5">Nama:</dt><dd class="col-sm-7">${
+                      item.nama_lengkap_anak
+                    }</dd>
+                    <dt class="col-sm-5">Tgl Lahir:</dt><dd class="col-sm-7">${new Date(
+                      item.tanggal_lahir
+                    ).toLocaleDateString("id-ID")}</dd>
+                    <dt class="col-sm-5">Gender:</dt><dd class="col-sm-7">${
+                      item.jenis_kelamin
+                    }</dd>
+                </dl>
+            </div>
+            <div class="col-md-6">
+                <h6>Orang Tua</h6>
+                <dl class="row">
+                    <dt class="col-sm-4">Nama:</dt><dd class="col-sm-8">${
+                      item.nama_orang_tua
+                    }</dd>
+                    <dt class="col-sm-4">Email:</dt><dd class="col-sm-8">${
+                      item.email
+                    }</dd>
+                    <dt class="col-sm-4">Telepon:</dt><dd class="col-sm-8">${
+                      item.nomor_telepon
+                    }</dd>
+                </dl>
+            </div>
+        </div>
+        <hr><h6>Alamat</h6><p>${item.alamat}</p>
+        <h6>Info Tambahan</h6><p>${item.informasi_tambahan || "-"}</p>
+        <small class="text-muted">Didaftarkan: ${new Date(
+          item.waktu_pendaftaran
+        ).toLocaleString("id-ID")}</small>
+    `;
         new bootstrap.Modal(document.getElementById("detailModal")).show();
       }
 
@@ -862,20 +884,21 @@
         const item = allData.find((d) => d.rowIndex == rowIndex);
         if (!item) return; // Jika data tidak ditemukan, hentikan
 
-        document.getElementById("editChildFullName").value =
-          item.childFullName || "";
-        document.getElementById("editChildDOB").value = item.childDOB || "";
-        document.getElementById("editChildGender").value =
-          item.childGender || "";
-        document.getElementById("editParentName").value = item.parentName || "";
-        document.getElementById("editParentEmail").value =
-          item.parentEmail || "";
-        document.getElementById("editParentPhoneNumber").value =
-          item.parentPhoneNumber || "";
-        document.getElementById("editAddress").value = item.address || "";
-        document.getElementById("editAdditionalInfo").value =
-          item.additionalInfo || "";
-        // Menggunakan ID yang benar untuk edit modal
+        // Mengisi form dengan data dari objek 'item' yang key-nya sudah Bahasa Indonesia
+        document.getElementById("edit_nama_lengkap_anak").value =
+          item.nama_lengkap_anak || "";
+        document.getElementById("edit_tanggal_lahir").value =
+          item.tanggal_lahir || "";
+        document.getElementById("edit_jenis_kelamin").value =
+          item.jenis_kelamin || "";
+        document.getElementById("edit_nama_orang_tua").value =
+          item.nama_orang_tua || "";
+        document.getElementById("edit_email").value = item.email || "";
+        document.getElementById("edit_nomor_telepon").value =
+          item.nomor_telepon || "";
+        document.getElementById("edit_alamat").value = item.alamat || "";
+        document.getElementById("edit_informasi_tambahan").value =
+          item.informasi_tambahan || "";
         document.getElementById("edit_status_pembayaran").value =
           item.status_pembayaran || "Belum Dicek";
 
@@ -924,24 +947,26 @@
 
         // Membuat objek 'data' dengan key yang konsisten
         const data = {
-          childFullName: document.getElementById(`${action}ChildFullName`)
-            .value,
-          childDOB: document.getElementById(`${action}ChildDOB`).value,
-          childGender: document.getElementById(`${action}ChildGender`).value,
-          parentName: document.getElementById(`${action}ParentName`).value,
-          parentEmail: document.getElementById(`${action}ParentEmail`).value,
-          parentPhoneNumber: document.getElementById(
-            `${action}ParentPhoneNumber`
+          nama_lengkap_anak: document.getElementById(
+            `${action}_nama_lengkap_anak`
           ).value,
-          address: document.getElementById(`${action}Address`).value,
-          additionalInfo: document.getElementById(`${action}AdditionalInfo`)
+          tanggal_lahir: document.getElementById(`${action}_tanggal_lahir`)
             .value,
-          // Menggunakan key "status_pembayaran" (snake_case) agar konsisten
+          jenis_kelamin: document.getElementById(`${action}_jenis_kelamin`)
+            .value,
+          nama_orang_tua: document.getElementById(`${action}_nama_orang_tua`)
+            .value,
+          email: document.getElementById(`${action}_email`).value,
+          nomor_telepon: document.getElementById(`${action}_nomor_telepon`)
+            .value,
+          alamat: document.getElementById(`${action}_alamat`).value,
+          informasi_tambahan: document.getElementById(
+            `${action}_informasi_tambahan`
+          ).value,
           status_pembayaran: document.getElementById(
             `${action}_status_pembayaran`
           ).value,
         };
-
         try {
           const response = await fetch(API_MANAGE_URL, {
             method: "POST",

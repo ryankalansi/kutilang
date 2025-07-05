@@ -16,19 +16,26 @@ if (empty($data['childFullName']) || empty($data['parentEmail'])) {
 
 // Menyiapkan statement untuk keamanan (mencegah SQL Injection)
 $stmt = $conn->prepare(
-    "INSERT INTO pendaftar (childFullName, childDOB, childGender, parentName, parentEmail, parentPhoneNumber, address, additionalInfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    "INSERT INTO pendaftar nama_lengkap_anak, 
+            tanggal_lahir, 
+            jenis_kelamin, 
+            nama_orang_tua, 
+            email, 
+            nomor_telepon, 
+            alamat, 
+            informasi_tambahan) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
 );
 
 // Bind parameter ke statement
 $stmt->bind_param("ssssssss", 
-    $data['childFullName'], 
-    $data['childDOB'], 
-    $data['childGender'], 
-    $data['parentName'], 
-    $data['parentEmail'], 
-    $data['parentPhoneNumber'], 
-    $data['address'], 
-    $data['additionalInfo']
+    $data['nama_lengkap_anak'], 
+    $data['tanggal_lahir'], 
+    $data['jenis_kelamin'], 
+    $data['nama_orang_tua'], 
+    $data['email'], 
+    $data['nomor_telepon'], 
+    $data['alamat'], 
+    $data['informasi_tambahan']
 );
 
 // Eksekusi statement dan beri respons

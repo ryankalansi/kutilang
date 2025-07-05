@@ -9,14 +9,14 @@ form.addEventListener("submit", async (e) => {
     '<i class="bi bi-hourglass-split me-2"></i>Mengirim...';
 
   const data = {
-    childFullName: document.getElementById("childFullName").value,
-    childDOB: document.getElementById("childDOB").value,
-    childGender: document.getElementById("childGender").value,
-    parentName: document.getElementById("parentName").value,
-    parentEmail: document.getElementById("parentEmail").value,
-    parentPhoneNumber: document.getElementById("parentPhoneNumber").value,
-    address: document.getElementById("address").value,
-    additionalInfo: document.getElementById("additionalInfo").value,
+    nama_lengkap_anak: document.getElementById("nama_lengkap_anak").value,
+    tanggal_lahir: document.getElementById("tanggal_lahir").value,
+    jenis_kelamin: document.getElementById("jenis_kelamin").value,
+    nama_orang_tua: document.getElementById("nama_orang_tua").value,
+    email: document.getElementById("email").value,
+    nomor_telepon: document.getElementById("nomor_telepon").value,
+    alamat: document.getElementById("alamat").value,
+    informasi_tambahan: document.getElementById("informasi_tambahan").value,
   };
 
   try {
