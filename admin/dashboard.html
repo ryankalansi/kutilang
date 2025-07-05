@@ -766,7 +766,7 @@
           "Desember",
         ];
         const uniqueMonths = [
-          ...new Set(allData.map((i) => i.timestamp.substring(0, 7))),
+          ...new Set(allData.map((i) => i.waktu_pendaftaran.substring(0, 7))),
         ]
           .sort()
           .reverse();
