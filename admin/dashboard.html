@@ -735,16 +735,16 @@
         const total = allData.length;
         const currentMonth = new Date().getMonth();
         const monthlyCount = allData.filter(
-          (i) => new Date(i.timestamp).getMonth() === currentMonth
+          (i) => new Date(i.waktu_pendaftaran).getMonth() === currentMonth
         ).length;
         document.getElementById("totalRegistrations").textContent = total;
         document.getElementById("monthlyRegistrations").textContent =
           monthlyCount;
         document.getElementById("maleCount").textContent = allData.filter(
-          (i) => i.childGender === "Laki-laki"
+          (i) => i.jenis_kelamin === "Laki-laki"
         ).length;
         document.getElementById("femaleCount").textContent = allData.filter(
-          (i) => i.childGender === "Perempuan"
+          (i) => i.jenis_kelamin === "Perempuan"
         ).length;
       }
 
@@ -1014,8 +1014,9 @@
               Object.values(item).some((val) =>
                 String(val).toLowerCase().includes(searchTerm)
               )) &&
-            (genderFilter === "" || item.childGender === genderFilter) &&
-            (monthFilter === "" || item.timestamp.startsWith(monthFilter))
+            (genderFilter === "" || item.jenis_kelamin === genderFilter) &&
+            (monthFilter === "" ||
+              item.waktu_pendaftaran.startsWith(monthFilter))
         );
         renderTable();
       }
