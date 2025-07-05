@@ -2,18 +2,19 @@
 require 'config.php';
 header('Content-Type: application/json');
 
-// Mengambil data JSON dari body request
 $input = json_decode(file_get_contents('php://input'), true);
 $action = $input['action'] ?? $_GET['action'] ?? '';
 
 switch ($action) {
     case 'create':
         $data = $input['data'];
-        $stmt = $conn->prepare("INSERT INTO pendaftar (childFullName, childDOB, childGender, parentName, parentEmail, parentPhoneNumber, address, additionalInfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssss", 
-            $data['childFullName'], $data['childDOB'], $data['childGender'], 
-            $data['parentName'], $data['parentEmail'], $data['parentPhoneNumber'], 
-            $data['address'], $data['additionalInfo']
+        // Menambahkan status_pembayaran ke query INSERT
+        $stmt = $conn->prepare("INSERT INTO pendaftar (childFullName, childDOB, childGender, parentName, parentEmail, parentPhoneNumber, address, additionalInfo, status_pembayaran) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        // Menambahkan 's' untuk tipe data string pada status_pembayaran
+        $stmt->bind_param("sssssssss",
+            $data['childFullName'], $data['childDOB'], $data['childGender'],
+            $data['parentName'], $data['parentEmail'], $data['parentPhoneNumber'],
+            $data['address'], $data['additionalInfo'], $data['status_pembayaran']
         );
         if ($stmt->execute()) {
             echo json_encode(['status' => 'success', 'message' => 'Data baru berhasil ditambahkan']);
@@ -26,11 +27,12 @@ switch ($action) {
     case 'edit':
         $data = $input['data'];
         $rowIndex = $input['rowIndex'];
-        $stmt = $conn->prepare("UPDATE pendaftar SET childFullName=?, childDOB=?, childGender=?, parentName=?, parentEmail=?, parentPhoneNumber=?, address=?, additionalInfo=? WHERE id=?");
-        $stmt->bind_param("ssssssssi", 
-            $data['childFullName'], $data['childDOB'], $data['childGender'], 
-            $data['parentName'], $data['parentEmail'], $data['parentPhoneNumber'], 
-            $data['address'], $data['additionalInfo'], $rowIndex
+        $stmt = $conn->prepare("UPDATE pendaftar SET childFullName=?, childDOB=?, childGender=?, parentName=?, parentEmail=?, parentPhoneNumber=?, address=?, additionalInfo=?, status_pembayaran=? WHERE id=?");
+        $stmt->bind_param("sssssssssi",
+            $data['childFullName'], $data['childDOB'], $data['childGender'],
+            $data['parentName'], $data['parentEmail'], $data['parentPhoneNumber'],
+            $data['address'], $data['additionalInfo'], $data['status_pembayaran'],
+            $rowIndex
         );
         if ($stmt->execute()) {
             echo json_encode(['status' => 'success', 'message' => 'Data berhasil diupdate']);
@@ -40,6 +42,7 @@ switch ($action) {
         $stmt->close();
         break;
 
+    
     case 'deleteRow':
         $rowIndex = $_GET['rowIndex'] ?? 0;
         $stmt = $conn->prepare("DELETE FROM pendaftar WHERE id = ?");

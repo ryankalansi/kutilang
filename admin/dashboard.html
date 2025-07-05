@@ -343,6 +343,7 @@
                     <th>Tanggal</th>
                     <th>Nama Anak</th>
                     <th>Gender</th>
+                    <th>Status Pembayaran</th>
                     <th>Nama Orang Tua</th>
                     <th>Email</th>
                     <th>Aksi</th>
@@ -479,6 +480,20 @@
                   rows="2"
                 ></textarea>
               </div>
+              <div class="mt-3">
+                <label class="form-label fw-bold">Status Pembayaran</label>
+                <select
+                  class="form-select"
+                  id="create_status_pembayaran"
+                  required
+                >
+                  <option value="Belum Dicek">Belum Dicek</option>
+                  <option value="Menunggu Pembayaran">
+                    Menunggu Pembayaran
+                  </option>
+                  <option value="Lunas">Lunas</option>
+                </select>
+              </div>
             </div>
             <div class="modal-footer">
               <button
@@ -587,6 +602,20 @@
                   id="editAdditionalInfo"
                   rows="2"
                 ></textarea>
+              </div>
+              <div class="mt-3">
+                <label class="form-label fw-bold">Status Pembayaran</label>
+                <select
+                  class="form-select"
+                  id="create_status_pembayaran"
+                  required
+                >
+                  <option value="Belum Dicek">Belum Dicek</option>
+                  <option value="Menunggu Pembayaran">
+                    Menunggu Pembayaran
+                  </option>
+                  <option value="Lunas">Lunas</option>
+                </select>
               </div>
               <input type="hidden" id="editRowIndex" />
             </div>
@@ -751,37 +780,51 @@
         tbody.innerHTML = "";
         if (filteredData.length === 0) {
           tbody.innerHTML =
-            '<tr><td colspan="7" class="text-center p-4">Data tidak ditemukan.</td></tr>';
+            '<tr><td colspan="8" class="text-center p-4">Data tidak ditemukan.</td></tr>'; // Ubah colspan menjadi 8
           return;
         }
         filteredData.forEach((item, index) => {
           const row = document.createElement("tr");
           const badgeClass = `badge-${item.childGender.replace(/\s+/g, "-")}`;
+
+          // Logika untuk badge status pembayaran
+          let statusBadge = "";
+          switch (item.status_pembayaran) {
+            case "Lunas":
+              statusBadge = '<span class="badge bg-success">Lunas</span>';
+              break;
+            case "Menunggu Pembayaran":
+              statusBadge =
+                '<span class="badge bg-warning text-dark">Menunggu Pembayaran</span>';
+              break;
+            default:
+              statusBadge =
+                '<span class="badge bg-secondary">Belum Dicek</span>';
+          }
+
           row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${new Date(item.timestamp).toLocaleDateString(
-                      "id-ID"
-                    )}</td>
-                    <td><strong>${item.childFullName}</strong></td>
-                    <td><span class="badge ${badgeClass}">${
+            <td>${index + 1}</td>
+            <td>${new Date(item.timestamp).toLocaleDateString("id-ID")}</td>
+            <td><strong>${item.childFullName}</strong></td>
+            <td><span class="badge ${badgeClass}">${
             item.childGender
           }</span></td>
-                    <td>${item.parentName}</td>
-                    <td>${item.parentEmail}</td>
-                    <td>
-                        <button class="btn btn-sm btn-outline-info action-btn" onclick="showDetail(${
-                          item.rowIndex
-                        })" title="Lihat Detail"><i class="bi bi-eye"></i></button>
-                        <button class="btn btn-sm btn-outline-warning action-btn" onclick="editData(${
-                          item.rowIndex
-                        })" title="Edit Data"><i class="bi bi-pencil"></i></button>
-                        <button class="btn btn-sm btn-outline-danger action-btn" onclick="deleteData(${
-                          item.rowIndex
-                        },'${
+            <td>${statusBadge}</td> <td>${item.parentName}</td>
+            <td>${item.parentEmail}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-info action-btn" onclick="showDetail(${
+                  item.rowIndex
+                })" title="Lihat Detail"><i class="bi bi-eye"></i></button>
+                <button class="btn btn-sm btn-outline-warning action-btn" onclick="editData(${
+                  item.rowIndex
+                })" title="Edit Data"><i class="bi bi-pencil"></i></button>
+                <button class="btn btn-sm btn-outline-danger action-btn" onclick="deleteData(${
+                  item.rowIndex
+                },'${
             item.childFullName
           }')" title="Hapus Data"><i class="bi bi-trash"></i></button>
-                    </td>
-                `;
+            </td>
+        `;
           tbody.appendChild(row);
         });
       }

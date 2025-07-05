@@ -2,7 +2,8 @@
 require 'config.php';
 header('Content-Type: application/json');
 
-$sql = "SELECT id as rowIndex, timestamp, childFullName, childDOB, childGender, parentName, parentEmail, parentPhoneNumber, address, additionalInfo FROM pendaftar ORDER BY timestamp ASC";
+
+$sql = "SELECT id as rowIndex, timestamp, childFullName, childDOB, childGender, parentName, parentEmail, parentPhoneNumber, address, additionalInfo, status_pembayaran FROM pendaftar ORDER BY id DESC";
 $result = $conn->query($sql);
 
 $data = [];
