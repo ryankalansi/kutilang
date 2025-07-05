@@ -9,7 +9,7 @@ $json_data = file_get_contents('php://input');
 $data = json_decode($json_data, true);
 
 // Validasi data (contoh sederhana)
-if (empty($data['childFullName']) || empty($data['parentEmail'])) {
+if (empty($data['nama_lengkap_anak']) || empty($data['email'])) {
     echo json_encode(['status' => 'error', 'message' => 'Data tidak lengkap']);
     exit;
 }

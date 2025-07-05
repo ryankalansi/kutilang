@@ -15,7 +15,18 @@ $output = fopen('php://output', 'w');
 fputcsv($output, array('ID', 'Tanggal Pendaftaran', 'Nama Anak', 'Tgl Lahir Anak', 'Gender Anak', 'Nama Orang Tua', 'Email', 'No Telepon', 'Alamat', 'Info Tambahan'));
 
 // Ambil data dari database
-$sql = "SELECT id, timestamp, childFullName, childDOB, childGender, parentName, parentEmail, parentPhoneNumber, address, additionalInfo FROM pendaftar ORDER BY timestamp DESC";
+$sql = "SELECT id, waktu_pendaftaran, 
+            nama_lengkap_anak, 
+            tanggal_lahir, 
+            jenis_kelamin, 
+            nama_orang_tua, 
+            email, 
+            nomor_telepon, 
+            alamat, 
+            informasi_tambahan, 
+            status_pembayaran 
+        FROM pendaftar 
+        ORDER BY id DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
